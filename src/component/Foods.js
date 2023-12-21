@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Modal } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
+import { addToCart } from '../actions/CartAction';
 
 const Foods = ({ food }) => {
   const [quantity, setQuantity] = useState(1);
@@ -8,6 +10,12 @@ const Foods = ({ food }) => {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const dispatch=useDispatch();
+  const state=useSelector(state=>state.addToCartReducer)
+  const handleAddToCart=()=>{
+    dispatch(addToCart(food,quantity,variant))
+  }
 
   return (
     <div className='shadow-lg p-3 mb-5 bg-white rounded'>
@@ -39,11 +47,10 @@ const Foods = ({ food }) => {
       </div>
       <div className="fluid-container">
         <div className="m-1 w-100">
-          <p className='mt-1'>Prices: {food.prices.find(price => price.size === variant).price * quantity} tk</p>
-
+        <p className='mt-1'>Prices: {food.prices[0][variant] * quantity} tk</p>
         </div>
         <div className="m-1 w-100">
-          <button>Add to cart</button>
+          <button onClick={handleAddToCart}>Add to cart</button>
         </div>
       </div>
 
