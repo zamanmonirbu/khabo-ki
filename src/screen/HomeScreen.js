@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import Foods from '../component/Foods.js';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllFood } from '../actions/FoodActions.js';
+import Loading from '../component/Loading.js';
+import Error from '../component/Error.js';
 
 const HomeScreen = () => {
   const dispatch = useDispatch();
@@ -14,7 +16,7 @@ const HomeScreen = () => {
   return (
     <div className='row justify-content-center'>
       {
-        loading?(<h1>Loading...</h1>):error?("Something went wrong!!!"):(
+        loading?<Loading/>:error?<Error error={"Some thing went wrong"}/>:(
             food.map((food) => (
             <div className='col-md-3 m-3' key={food._id}>
               <Foods food={food}  />
