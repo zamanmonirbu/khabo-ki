@@ -49,3 +49,37 @@ input{
   margin-top: 15px !important;
   box-sizing: none !important;
 }
+
+.horizontal-menu {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  background-color: gray;
+  padding: 10px;
+  justify-content: center;
+    align-items: center;
+ 
+}
+
+.horizontal-menu li {
+  margin-right: 20px;
+}
+
+.horizontal-menu li:last-child {
+  margin-right: 0;
+}
+
+.horizontal-menu a {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  color: antiquewhite;
+}
+
+.horizontal-menu a:hover{
+  color: aqua;
+}
+
+tr,td,th{
+  text-align: left;
+}

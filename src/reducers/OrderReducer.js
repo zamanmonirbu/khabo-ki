@@ -17,3 +17,27 @@ export const placeOrderReducer = (state = {}, action) => {
             return state
     }
 };
+
+export const getUserOrdersReducers = (state ={orders:[]}, action) => {
+    switch (action.type) {
+      case "GET_USER_ORDER_REQUEST":
+        return {
+          ...state,
+          loading: true,
+        };
+      case "GET_USER_ORDER_SUCCESS":
+        return {
+          ...state,
+          orders: action.payload,
+          loading: false,
+        };
+      case "GET_USER_ORDER_FAIL":
+        return {
+          ...state,
+          error: action.payload,
+          loading: false,
+        };
+      default:
+        return state;
+    }
+  };

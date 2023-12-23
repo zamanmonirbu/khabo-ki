@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import Foods from '../component/Foods.js';
 import { useDispatch, useSelector } from 'react-redux';
+import Foods from '../component/Foods.js';
 import { getAllFood } from '../actions/FoodActions.js';
 import Loading from '../component/Loading.js';
 import Error from '../component/Error.js';

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Modal } from 'react-bootstrap';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addToCart } from '../actions/CartAction';
 
 const Foods = ({ food }) => {
@@ -12,7 +12,7 @@ const Foods = ({ food }) => {
   const handleShow = () => setShow(true);
 
   const dispatch=useDispatch();
-  const state=useSelector(state=>state.addToCartReducer)
+  // const state=useSelector(state=>state.addToCartReducer)
   const handleAddToCart=()=>{
     dispatch(addToCart(food,quantity,variant))
   }

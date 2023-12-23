@@ -31,3 +31,29 @@ const foodReducer = (state = initialData, action) => {
 };
 
 export default foodReducer;
+
+export const addFoodReducer = (state ={}, action) => {
+  switch (action.type) {
+    case "ADD_FOOD_REQUEST":
+      return {
+        ...state,
+        loading: true,
+      };
+    case "ADD_FOOD_SUCCESS":
+      return {
+        ...state,
+        loading: false,
+        success:true,
+      };
+    case "ADD_FOOD_FAIL":
+      return {
+        ...state,
+        error: action.payload,
+        loading: false,
+      };
+    default:
+      return state;
+  }
+};
+
+
