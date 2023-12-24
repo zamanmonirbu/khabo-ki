@@ -107,3 +107,28 @@ export const editFoodReducer = (state ={}, action) => {
 };
 
 
+export const deleteFoodReducer = (state ={}, action) => {
+  switch (action.type) {
+    case "DELETE_FOOD_REQUEST":
+      return {
+        ...state,
+        deleteLoading: true,
+      };
+    case "DELETE_FOOD_SUCCESS":
+      return {
+        ...state,
+        deleteLoading: false,
+        deleteSuccess:true,
+      };
+    case "DELETE_FOOD_FAIL":
+      return {
+        ...state,
+        deleteError: action.payload,
+        deleteLoading: false,
+      };
+    default:
+      return state;
+  }
+};
+
+

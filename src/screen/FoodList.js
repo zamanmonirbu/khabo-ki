@@ -2,12 +2,15 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Loading from "../component/Loading.js";
 import Error from "../component/Error.js";
-import { getAllFood } from "../actions/FoodActions.js";
+import Success from "../component/Success.js";
+import { deleteFood, getAllFood } from "../actions/FoodActions.js";
 import { Link } from "react-router-dom";
+
 
 const FoodList = () => {
   const dispatch = useDispatch();
   const { food, loading, error } = useSelector((state) => state.foodReducer);
+  const {deleteLoading,deleteError,deleteSuccess}=useSelector((state)=>state.deleteFoodReducer)
 
   useEffect(() => {
     dispatch(getAllFood());
@@ -17,6 +20,9 @@ const FoodList = () => {
       <h1>Food list</h1>
       {error && <Error error={"Something went wrong"} />}
       {loading && <Loading />}
+      {deleteError && <Error error={"Something went wrong"} />}
+      {deleteLoading && <Loading />}
+      {deleteSuccess && <Success success={"Successfully deleted food"}/>}
 
       <table className="table table-striped">
         <thead className="thead-dark">
@@ -43,7 +49,7 @@ const FoodList = () => {
                   </td>
                   <td>
                     <Link to={`/admin/edit/food/${foods._id}`}><span className="m-1">edit <i className="fa fa-edit"></i> </span></Link>
-                    <span>edit <i className="fa fa-trash"></i> </span>
+                    <span onClick={()=>dispatch(deleteFood(`${foods._id}`))}>Delete<i className="fa fa-trash"></i> </span>
                   </td>
                 </tr>
               );
