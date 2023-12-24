@@ -14,6 +14,7 @@ import UserList from "./screen/UserList";
 import OrdersList from "./screen/OrdersList";
 import AddFood from "./screen/AddFood";
 import FoodList from "./screen/FoodList";
+import EditFood from "./screen/EditFood";
 function App() {
   return (
     <div className="App">
@@ -29,6 +30,7 @@ function App() {
         <Route path="/admin/orders/list" element={<OrdersList />} />
         <Route path="/admin/add/new/food" element={<AddFood />} />
         <Route path="/admin/food/list" element={<FoodList />} />
+        <Route path="/admin/edit/food/:id" element={<EditFood/>} />
       </Routes>
     </div>
   );

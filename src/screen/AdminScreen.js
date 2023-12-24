@@ -1,17 +1,17 @@
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link, Route, Routes } from "react-router-dom";
+import {  useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 
 const AdminScreen = () => {
   const { currentUser } = useSelector((state) => state.loginUserReducer);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   useEffect(() => {
     if (!currentUser.isAdmin) {
       window.location.href = "/";
     }
-  }, []);
+  }, [currentUser.isAdmin]);
 
   return (
     <div className="row ml-5 mr-5 justify-content-center">

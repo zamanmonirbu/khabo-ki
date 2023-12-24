@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Loading from "../component/Loading.js";
 import Error from "../component/Error.js";
 import { getAllFood } from "../actions/FoodActions.js";
+import { Link } from "react-router-dom";
 
 const FoodList = () => {
   const dispatch = useDispatch();
@@ -30,7 +31,7 @@ const FoodList = () => {
           {food &&
             food.map((foods) => {
               return (
-                <tr>
+                <tr key={foods._id}>
                   <td>{foods.name} </td>
                   <td>
                  Small : {foods.prices[0]['small']} <br/>
@@ -41,7 +42,7 @@ const FoodList = () => {
                     {foods.category}
                   </td>
                   <td>
-                    <span className="m-1">edit <i className="fa fa-edit"></i> </span>
+                    <Link to={`/admin/edit/food/${foods._id}`}><span className="m-1">edit <i className="fa fa-edit"></i> </span></Link>
                     <span>edit <i className="fa fa-trash"></i> </span>
                   </td>
                 </tr>

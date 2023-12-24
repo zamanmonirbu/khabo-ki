@@ -2,14 +2,14 @@
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import { thunk } from 'redux-thunk';
 import { composeWithDevTools } from '@redux-devtools/extension';
-import foodReducer, { addFoodReducer } from './reducers/FoodReducer';
+import foodReducer, { addFoodReducer, getFoodByIdReducer } from './reducers/FoodReducer';
 import { addToCartReducer } from './reducers/CartReducer';
 import { registerUserReducer,loginUserReducer } from './reducers/UsersReducer';
 import { getUserOrdersReducers, placeOrderReducer } from './reducers/OrderReducer';
 
 
 
-const all = combineReducers({ foodReducer: foodReducer,addToCartReducer:addToCartReducer,registerUserReducer:registerUserReducer,loginUserReducer:loginUserReducer,placeOrderReducer:placeOrderReducer,getUserOrdersReducers:getUserOrdersReducers,addFoodReducer:addFoodReducer })
+const all = combineReducers({ foodReducer: foodReducer,addToCartReducer:addToCartReducer,registerUserReducer:registerUserReducer,loginUserReducer:loginUserReducer,placeOrderReducer:placeOrderReducer,getUserOrdersReducers:getUserOrdersReducers,addFoodReducer:addFoodReducer,getFoodByIdReducer:getFoodByIdReducer })
 
 const composeEnhancers = composeWithDevTools({});
 

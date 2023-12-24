@@ -39,7 +39,7 @@ dispatch(addFood())
 
   return (
     <div>
-      <div>
+
         <h1>Add Food</h1>
         {loading && <Loading/>}
         {error && <Error error={"Something went wrong"}/>}
@@ -97,7 +97,7 @@ dispatch(addFood())
           <button type="submit">Add Food</button>
         </form>
       </div>
-    </div>
+    
   );
 };
 
