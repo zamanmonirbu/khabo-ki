@@ -1,19 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addFood } from "../actions/FoodActions";
 import Loading from '../component/Loading';
 import Error from '../component/Error';
 import Success from '../component/Success';
+import AdminScreen from "./AdminScreen";
 
 
 const AddFood = () => {
-  const { currentUser } = useSelector((state) => state.loginUserReducer);
-  useEffect(() => {
-    if (!currentUser?.isAdmin) {
-      window.location.href = "/";
-    }
-  }, [currentUser?.isAdmin]);
-
   const [name, setName] = useState("");
   const [smallPrice, setSmallPrice] = useState("");
   const [mediumPrice, setMediumPrice] = useState("");
@@ -45,8 +39,9 @@ const AddFood = () => {
   };
 
   return (
-    <div>
-
+    <div className="row m-4 justify-content-center">
+    <AdminScreen/>
+    <div className="col-md-10 border border-info p-4 rounded">
       <h1>Add Food</h1>
       {loading && <Loading />}
       {error && <Error error={"Something went wrong"} />}
@@ -103,6 +98,7 @@ const AddFood = () => {
         />
         <button className="btn btn-danger" type="submit">Add Food</button>
       </form>
+    </div>
     </div>
 
   );

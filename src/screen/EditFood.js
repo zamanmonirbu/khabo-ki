@@ -4,15 +4,9 @@ import { useParams } from "react-router-dom";
 import { editFood, getFoodById } from "../actions/FoodActions";
 import Loading from "../component/Loading";
 import Error from "../component/Error";
+import AdminScreen from "./AdminScreen";
 
 const EditFood = () => {
-  const { currentUser } = useSelector((state) => state.loginUserReducer);
-  useEffect(() => {
-    if (!currentUser?.isAdmin) {
-      window.location.href = "/";
-    }
-  }, [currentUser?.isAdmin]);
-  
   const { id } = useParams();
   const dispatch = useDispatch();
   const { error, food, loading } = useSelector((state) => state.getFoodByIdReducer);
@@ -64,8 +58,9 @@ const EditFood = () => {
   }, [food, id, dispatch]);
 
   return (
-    <div>
-      <p>Id: {id}</p>
+    <div className="row m-4 justify-content-center ">
+    <AdminScreen/>
+      <div className="col-md-10 border border-info p-4 rounded">
       {loading && <Loading />}
       {error && <Error error={"Something went wrong"} />}
       {food && (
@@ -125,6 +120,7 @@ const EditFood = () => {
           </form>
         </div>
       )}
+    </div>
     </div>
   );
 };

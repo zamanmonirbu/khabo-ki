@@ -31,7 +31,7 @@ const Checkout = ({ subTotal }) => {
         currency="INR"
       >
         <button className="btn btn-danger">Pay Now</button>
-      </StripeCheckout>):(<Link to="/login"> <button className="btn btn-danger">To pay Login First</button></Link>)
+      </StripeCheckout>):(<Link to="/cart/confirm"> <button className="btn btn-danger">To pay Login First</button></Link>)
       }
     </div>
   );

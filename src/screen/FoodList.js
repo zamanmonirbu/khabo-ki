@@ -5,17 +5,10 @@ import Error from "../component/Error.js";
 import Success from "../component/Success.js";
 import { deleteFood, getAllFood } from "../actions/FoodActions.js";
 import { Link } from "react-router-dom";
+import AdminScreen from "./AdminScreen.js";
 
 
 const FoodList = () => {
-
-  const { currentUser } = useSelector((state) => state.loginUserReducer);
-  useEffect(() => {
-    if (!currentUser?.isAdmin) {
-      window.location.href = "/";
-    }
-  }, [currentUser?.isAdmin]);
-
   const dispatch = useDispatch();
   const { food, loading, error } = useSelector((state) => state.foodReducer);
   const { deleteLoading, deleteError, deleteSuccess } = useSelector((state) => state.deleteFoodReducer)
@@ -24,7 +17,9 @@ const FoodList = () => {
     dispatch(getAllFood());
   }, [dispatch]);
   return (
-    <div>
+    <div className="row m-4 justify-content-center">
+    <AdminScreen/>
+      <div className="col-md-10 border border-info p-4 rounded">
       <h1>Food list</h1>
       {error && <Error error={"Something went wrong"} />}
       {loading && <Loading />}
@@ -64,6 +59,7 @@ const FoodList = () => {
             })}
         </tbody>
       </table>
+    </div>
     </div>
   );
 };

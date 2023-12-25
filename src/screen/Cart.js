@@ -36,7 +36,6 @@ const Cart = () => {
                             </div>
                             <hr />
                         </div>
-
                     })
                 }
             </div>

@@ -15,26 +15,35 @@ import OrdersList from "./screen/OrdersList";
 import AddFood from "./screen/AddFood";
 import FoodList from "./screen/FoodList";
 import EditFood from "./screen/EditFood";
+import AdminPrivateRoutes from "./screen/AdminPrivateRoutes";
+import UserPrivateRoute from "./screen/UserPrivateRoute";
+import IsAdmin from "./screen/IsAdmin";
 function App() {
   return (
     <div className="App">
       <Navbar />
       <Routes>
         <Route path="/" element={<HomeScreen />} />
-        <Route path="/cart" element={<Cart />} />
+
         <Route path="/register" element={<RegisterScreen />} />
         <Route path="/login" element={<LoginScreen />} />
         <Route path="/orders" element={<OrderScreen />} />
         <Route path="/admin" element={<AdminScreen />} />
+        <Route path="/cart" element={<Cart />} />
 
+        <Route element={<UserPrivateRoute />}>
+          <Route path="/cart/confirm" element={<Cart />} />
+        </Route>
 
+        <Route path="/no/permission" element={<IsAdmin />} />
+        <Route path="/admin/*" element={<AdminPrivateRoutes />}>
+          <Route index element={<UserList />} />
+          <Route path="food/list" element={<FoodList/>} />
+          <Route path="add/new/food" element={<AddFood />} />
+          <Route path="orders/list" element={<OrdersList />} />
+          <Route path="edit/food/:id" element={<EditFood/>} />
+        </Route>
 
-
-        <Route path="/admin/user/list" element={<UserList />} />
-        <Route path="/admin/orders/list" element={<OrdersList />} />
-        <Route path="/admin/add/new/food" element={<AddFood />} />
-        <Route path="/admin/food/list" element={<FoodList />} />
-        <Route path="/admin/edit/food/:id" element={<EditFood/>} />
       </Routes>
     </div>
   );

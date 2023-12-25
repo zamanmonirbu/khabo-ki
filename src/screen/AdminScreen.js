@@ -1,15 +1,7 @@
-import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
+import React from "react";
 import { Link } from "react-router-dom";
 
 const AdminScreen = () => {
-  const { currentUser } = useSelector((state) => state.loginUserReducer);
-  useEffect(() => {
-    if (!currentUser?.isAdmin) {
-      window.location.href = "/";
-    }
-  }, [currentUser?.isAdmin]);
-
   return (
     <div className="row ml-5 mr-5 justify-content-center">
       <div className="col-md-10">
@@ -17,7 +9,7 @@ const AdminScreen = () => {
         <div className="header">
           <ul className="horizontal-menu ">
             <li>
-              <Link to="/admin/user/list">Users List</Link>
+              <Link to="/admin">Users List</Link>
             </li>
             <li>
               <Link to="/admin/food/list">Food List</Link>
@@ -29,7 +21,6 @@ const AdminScreen = () => {
               <Link to="/admin/orders/list">Orders List</Link>
             </li>
           </ul>
-          
         </div>
       </div>
     </div>

@@ -1,21 +1,21 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { loginUser } from '../actions/UserAction';
-import { Link } from 'react-router-dom';
-import Loading from '../component/Loading';
-import Error from '../component/Error';
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { loginUser } from "../actions/UserAction";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import Loading from "../component/Loading";
+import Error from "../component/Error";
 
 const LoginScreen = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
-  const { error, loading } = useSelector(state => state.loginUserReducer)
+  const location = useLocation();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const Navigate = useNavigate();
+  const { error, loading } = useSelector((state) => state.loginUserReducer);
+  const { currentUser } = useSelector((state) => state.loginUserReducer);
 
   const dispatch = useDispatch();
-
   const login = (e) => {
     e.preventDefault();
-
     const user = {
       email,
       password,
@@ -25,11 +25,14 @@ const LoginScreen = () => {
   };
 
   useEffect(() => {
-    const checkUser = localStorage.getItem('currentUser');
-    if (checkUser) {
-      window.location.href = '/';
+    if (currentUser) {
+      if (location?.state?.prevUrl) {
+        Navigate(location?.state?.prevUrl);
+      } else {
+        Navigate("/");
+      }
     }
-  }, []);
+  }, [Navigate, location?.state?.prevUrl, currentUser]);
 
   return (
     <div className="row justify-content-center mt-5">
@@ -60,7 +63,7 @@ const LoginScreen = () => {
             <button className="btn btn-danger" type="submit" onClick={login}>
               LOGIN
             </button>
-            <Link to={'/register'}>Click here to register</Link>
+            <Link to={"/register"}>Click here to register</Link>
           </div>
         </form>
       </div>

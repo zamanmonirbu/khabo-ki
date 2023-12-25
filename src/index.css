@@ -83,3 +83,9 @@ input{
 tr,td,th{
   text-align: left;
 }
+
+.nav-item:hover{
+  background-color: #dce8f4;
+  color: #fff;
+  border-radius: 10px;
+}

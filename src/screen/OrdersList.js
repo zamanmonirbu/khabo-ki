@@ -3,24 +3,18 @@ import { useDispatch, useSelector } from 'react-redux';
 import Loading from '../component/Loading';
 import Error from '../component/Error';
 import { deliveredOrder, getAllOrders } from '../actions/OrderAction';
-
+import AdminScreen from './AdminScreen';
 
 const OrdersList = () => {
-
-  const { currentUser } = useSelector((state) => state.loginUserReducer);
-  useEffect(() => {
-    if (!currentUser?.isAdmin) {
-      window.location.href = "/";
-    }
-  }, [currentUser?.isAdmin]);
-
   const { orders, loading, error } = useSelector(state => state.getAllOrdersReducers)
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAllOrders())
   }, [dispatch])
   return (
-    <div>
+    <div className="row m-4 justify-content-center">
+    <AdminScreen/>
+      <div className="col-md-10 border border-info p-4 rounded">
       <h1>Order list</h1>
       {loading && <Loading />}
       {error && <Error error={"Something went wrong"} />}
@@ -53,6 +47,7 @@ const OrdersList = () => {
         </tbody>
       </table>
 
+    </div>
     </div>
   );
 };
