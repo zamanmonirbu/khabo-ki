@@ -6,6 +6,13 @@ import Loading from "../component/Loading";
 import Error from "../component/Error";
 
 const EditFood = () => {
+  const { currentUser } = useSelector((state) => state.loginUserReducer);
+  useEffect(() => {
+    if (!currentUser?.isAdmin) {
+      window.location.href = "/";
+    }
+  }, [currentUser?.isAdmin]);
+  
   const { id } = useParams();
   const dispatch = useDispatch();
   const { error, food, loading } = useSelector((state) => state.getFoodByIdReducer);

@@ -7,6 +7,13 @@ import { deliveredOrder, getAllOrders } from '../actions/OrderAction';
 
 const OrdersList = () => {
 
+  const { currentUser } = useSelector((state) => state.loginUserReducer);
+  useEffect(() => {
+    if (!currentUser?.isAdmin) {
+      window.location.href = "/";
+    }
+  }, [currentUser?.isAdmin]);
+
   const { orders, loading, error } = useSelector(state => state.getAllOrdersReducers)
   const dispatch = useDispatch();
   useEffect(() => {

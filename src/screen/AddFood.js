@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addFood } from "../actions/FoodActions";
 import Loading from '../component/Loading';
@@ -7,6 +7,13 @@ import Success from '../component/Success';
 
 
 const AddFood = () => {
+  const { currentUser } = useSelector((state) => state.loginUserReducer);
+  useEffect(() => {
+    if (!currentUser?.isAdmin) {
+      window.location.href = "/";
+    }
+  }, [currentUser?.isAdmin]);
+
   const [name, setName] = useState("");
   const [smallPrice, setSmallPrice] = useState("");
   const [mediumPrice, setMediumPrice] = useState("");

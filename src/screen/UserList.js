@@ -6,6 +6,13 @@ import { deleteUser, getAllUser } from '../actions/UserAction';
 
 
 const UserList = () => {
+    const { currentUser } = useSelector((state) => state.loginUserReducer);
+    useEffect(() => {
+      if (!currentUser?.isAdmin) {
+        window.location.href = "/";
+      }
+    }, [currentUser?.isAdmin]);
+
     const { users, loading, error } = useSelector(state => state.getAllUserReducer)
     const dispatch = useDispatch();
 

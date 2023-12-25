@@ -1,11 +1,9 @@
 import React, { useEffect } from "react";
-import {  useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-
 
 const AdminScreen = () => {
   const { currentUser } = useSelector((state) => state.loginUserReducer);
-  console.log(currentUser);
   useEffect(() => {
     if (!currentUser?.isAdmin) {
       window.location.href = "/";
@@ -31,7 +29,7 @@ const AdminScreen = () => {
               <Link to="/admin/orders/list">Orders List</Link>
             </li>
           </ul>
-         
+          
         </div>
       </div>
     </div>

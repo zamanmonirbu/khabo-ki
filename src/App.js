@@ -26,6 +26,10 @@ function App() {
         <Route path="/login" element={<LoginScreen />} />
         <Route path="/orders" element={<OrderScreen />} />
         <Route path="/admin" element={<AdminScreen />} />
+
+
+
+
         <Route path="/admin/user/list" element={<UserList />} />
         <Route path="/admin/orders/list" element={<OrdersList />} />
         <Route path="/admin/add/new/food" element={<AddFood />} />

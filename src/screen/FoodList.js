@@ -8,6 +8,14 @@ import { Link } from "react-router-dom";
 
 
 const FoodList = () => {
+
+  const { currentUser } = useSelector((state) => state.loginUserReducer);
+  useEffect(() => {
+    if (!currentUser?.isAdmin) {
+      window.location.href = "/";
+    }
+  }, [currentUser?.isAdmin]);
+
   const dispatch = useDispatch();
   const { food, loading, error } = useSelector((state) => state.foodReducer);
   const { deleteLoading, deleteError, deleteSuccess } = useSelector((state) => state.deleteFoodReducer)
