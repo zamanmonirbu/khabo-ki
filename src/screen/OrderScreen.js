@@ -11,7 +11,7 @@ const OrderScreen = () => {
   );
   useEffect(() => {
     dispatch(getUserOrders());
-  },[dispatch]);
+  }, [dispatch]);
   return (
     <div>
       <h2>My Orders</h2>
@@ -20,11 +20,11 @@ const OrderScreen = () => {
         {error && <Error error={"Something went wrong"} />}
         {orders &&
           orders.map((order) => {
-            return ( 
+            return (
               <div className="col-md-8 ">
                 <div className="fluid-container mt-2 p-4 bg-secondary text-white shadow  mb-3  rounded">
                   <div className="text-start w-100 ">
-                  <h2>Items</h2>
+                    <h2>Items</h2>
                     {order.orderItems.map((item) => {
                       return (
                         <div>
@@ -38,17 +38,17 @@ const OrderScreen = () => {
                   </div>
 
                   <div className="text-start w-100 ">
-                        <h2>Address</h2>
-                        <p>Street : {order.shippingAddress.street}</p>
-                        <p>City : {order.shippingAddress.city}</p>
-                        <p>Country : {order.shippingAddress.country}</p>
-                        <p>PinCode : {order.shippingAddress.pincode}</p>
+                    <h2>Address</h2>
+                    <p>Street : {order.shippingAddress.street}</p>
+                    <p>City : {order.shippingAddress.city}</p>
+                    <p>Country : {order.shippingAddress.country}</p>
+                    <p>PinCode : {order.shippingAddress.pincode}</p>
                   </div>
                   <div className="text-start w-100 m-1">
                     <h2>OrderInfo</h2>
                     <p>Order Amount : {order.orderAmount}</p>
                     <p>Order Date : {order.orderAmount}</p>
-                    <p>Date : {order.createdAt.substring(0,10)}</p>
+                    <p>Date : {order.createdAt.substring(0, 10)}</p>
                     <p>Transaction ID : {order.transactionId}</p>
                     <p>Order ID : {order._id}</p>
 

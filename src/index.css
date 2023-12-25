@@ -26,10 +26,10 @@ h1{
 .fluid-container{
   display:flex
 }
-button{
+/* button{
   color:white;
   background-color:red
-}
+} */
 select{
   box-sizing: none;
   border-color: black;

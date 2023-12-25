@@ -11,20 +11,19 @@ const Foods = ({ food }) => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const dispatch=useDispatch();
-  // const state=useSelector(state=>state.addToCartReducer)
-  const handleAddToCart=()=>{
-    dispatch(addToCart(food,quantity,variant))
+  const dispatch = useDispatch();
+  const handleAddToCart = () => {
+    dispatch(addToCart(food, quantity, variant))
   }
 
   return (
     <div className='shadow-lg p-3 mb-5 bg-white rounded'>
       <div onClick={handleShow}>
         <p>{food.name}</p>
-        <img src={food.image} alt="foodImg" className='img-fluid' style={{ height: '200px', width: '200px' }} />
+        <img src={food.image} alt="foodImg" className='img-fluid img-thumbnail rounded ' style={{ height: '300px', width: '250px' }} />
       </div>
       <div className="fluid-container">
-        <div className='w-100 m-1'>
+        <div className='w-100 mt-3 mb-3 '>
           Variants
           <select className='form-control' value={variant} onChange={(e) => setVariant(e.target.value)}>
             {food.variants.map((variant) => (
@@ -34,7 +33,7 @@ const Foods = ({ food }) => {
             ))}
           </select>
         </div>
-        <div className='w-100 m-1'>
+        <div className='w-100 mt-3 mb-3'>
           Quantity
           <select className='form-control' value={quantity} onChange={(e) => setQuantity(e.target.value)}>
             {[...Array(10).keys()].map((i) => (
@@ -47,10 +46,10 @@ const Foods = ({ food }) => {
       </div>
       <div className="fluid-container">
         <div className="m-1 w-100">
-        <p className='mt-1'>Prices: {food.prices[0][variant] * quantity} tk</p>
+          <p className='mt-1'>Prices: {food.prices[0][variant] * quantity} tk</p>
         </div>
         <div className="m-1 w-100">
-          <button onClick={handleAddToCart}>Add to cart</button>
+          <button className="btn btn-danger" onClick={handleAddToCart}>Add to cart</button>
         </div>
       </div>
 
@@ -66,7 +65,7 @@ const Foods = ({ food }) => {
           </div>
         </Modal.Body>
         <Modal.Footer>
-          <button onClick={handleClose}>Close</button>
+          <button className="btn btn-danger" onClick={handleClose}>Close</button>
         </Modal.Footer>
       </Modal>
     </div>

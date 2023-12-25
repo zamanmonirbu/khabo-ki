@@ -5,13 +5,12 @@ import { Link } from "react-router-dom";
 
 const AdminScreen = () => {
   const { currentUser } = useSelector((state) => state.loginUserReducer);
-  // const dispatch = useDispatch();
-
+  console.log(currentUser);
   useEffect(() => {
-    if (!currentUser.isAdmin) {
+    if (!currentUser?.isAdmin) {
       window.location.href = "/";
     }
-  }, [currentUser.isAdmin]);
+  }, [currentUser?.isAdmin]);
 
   return (
     <div className="row ml-5 mr-5 justify-content-center">

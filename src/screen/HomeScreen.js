@@ -7,19 +7,19 @@ import Error from '../component/Error.js';
 
 const HomeScreen = () => {
   const dispatch = useDispatch();
-  const {food,loading,error} = useSelector((state) => state.foodReducer);
+  const { food, loading, error } = useSelector((state) => state.foodReducer);
 
   useEffect(() => {
     dispatch(getAllFood());
   }, [dispatch]);
 
   return (
-    <div className='row justify-content-center'>
+    <div className='row justify-content-center ' style={{backgroundColor:'#F5F5F5'}}>
       {
-        loading?<Loading/>:error?<Error error={"Some thing went wrong"}/>:(
-            food.map((food) => (
+        loading ? <Loading /> : error ? <Error error={"Some thing went wrong"} /> : (
+          food.map((food) => (
             <div className='col-md-3 m-3' key={food._id}>
-              <Foods food={food}  />
+              <Foods food={food} />
             </div>
           )))
       }

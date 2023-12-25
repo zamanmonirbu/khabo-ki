@@ -17,9 +17,9 @@ const Checkout = ({ subTotal }) => {
   };
   return (
     <div>
-    {loading && <Loading/>}
-    {error && <Error error={"Payment not success"}/>}
-    {success && <Success success={"Successful payment"}/>}
+      {loading && <Loading />}
+      {error && <Error error={"Payment not success"} />}
+      {success && <Success success={"Successful payment"} />}
       <StripeCheckout
         amount={subTotal * 100}
         stripeKey="pk_test_51OQBiWIHoIMM5DdUn2CP9cXfVmKs8Ga09vvkLPNhUpF3nm2lbkeqCLMsLS2Ya7pAUkWD3fF0n8m3sXDb7F76uHaO00OhnrgO83"
@@ -27,7 +27,7 @@ const Checkout = ({ subTotal }) => {
         token={handleToken}
         currency="INR"
       >
-        <button>Pay Now</button>
+        <button className="btn btn-danger">Pay Now</button>
       </StripeCheckout>
     </div>
   );

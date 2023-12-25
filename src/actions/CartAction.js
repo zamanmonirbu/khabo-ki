@@ -1,4 +1,4 @@
-import { ADD_TO_CART } from "./Constant"
+import { ADD_TO_CART, DELETE_FROM_CART } from "./Constant"
 
 export const addToCart = (food, quantity, variant) => (dispatch, getState) => {
 
@@ -11,14 +11,14 @@ export const addToCart = (food, quantity, variant) => (dispatch, getState) => {
         prices: food.prices,
         price: food.prices[0][variant] * quantity
     }
-    if(cartItem.quantity>10){
+    if (cartItem.quantity > 10) {
         alert("Not will be more than 10 item")
     }
-    else{
-        if(cartItem.quantity<1){
-            dispatch({type:"DELETE_FROM_CART",payload:cartItem})
-        }else{
-            dispatch({type:"ADD_TO_CART",payload:cartItem})
+    else {
+        if (cartItem.quantity < 1) {
+            dispatch({ type: DELETE_FROM_CART, payload: cartItem })
+        } else {
+            dispatch({ type: "ADD_TO_CART", payload: cartItem })
 
         }
     }
@@ -35,7 +35,7 @@ export const addToCart = (food, quantity, variant) => (dispatch, getState) => {
 
 export const deleteFromCart = (food) => (dispatch, getState) => {
     dispatch({
-        type: "DELETE_FROM_CART",
+        type: DELETE_FROM_CART,
         payload: food,
     });
 

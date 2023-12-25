@@ -9,7 +9,7 @@ const LoginScreen = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const {error,loading}=useSelector(state=>state.loginUserReducer)
+  const { error, loading } = useSelector(state => state.loginUserReducer)
 
   const dispatch = useDispatch();
 
@@ -34,8 +34,8 @@ const LoginScreen = () => {
   return (
     <div className="row justify-content-center mt-5">
       <div className="col-md-5 mt-5 text-left shadow-lg p-3 mb-5 bg-body rounded">
-        {loading && <Loading/>}
-        {error && <Error error={"Wrong user credential"}/>}
+        {loading && <Loading />}
+        {error && <Error error={"Wrong user credential"} />}
         <h2 className="text-center">Login</h2>
         <form>
           <input
@@ -57,7 +57,7 @@ const LoginScreen = () => {
             required
           />
           <div className="d-flex justify-content-between align-items-center mt-3">
-            <button type="submit" onClick={login}>
+            <button className="btn btn-danger" type="submit" onClick={login}>
               LOGIN
             </button>
             <Link to={'/register'}>Click here to register</Link>

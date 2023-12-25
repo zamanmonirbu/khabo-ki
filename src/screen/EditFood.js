@@ -19,7 +19,7 @@ const EditFood = () => {
   const [category, setCategory] = useState("");
 
 
-  console.log( name,
+  console.log(name,
     image,
     description,
     category)
@@ -114,7 +114,7 @@ const EditFood = () => {
               value={description}
               onChange={(e) => setDescription(e.target.value)}
             />
-            <button type="submit">Update Food</button>
+            <button className="btn btn-danger" type="submit">Update Food</button>
           </form>
         </div>
       )}

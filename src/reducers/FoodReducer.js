@@ -1,4 +1,4 @@
-import { GET_FOOD_FAIL, GET_FOOD_REQUEST, GET_FOOD_SUCCESS } from "../actions/Constant";
+import { ADD_FOOD_FAILED, ADD_FOOD_REQUEST, ADD_FOOD_SUCCESS, DELETE_FOOD_FAILED, DELETE_FOOD_REQUEST, DELETE_FOOD_SUCCESS, EDIT_FOOD_FAILED, EDIT_FOOD_REQUEST, EDIT_FOOD_SUCCESS, GET_FOOD_BY_ID_FAIL, GET_FOOD_BY_ID_REQUEST, GET_FOOD_BY_ID_SUCCESS, GET_FOOD_FAIL, GET_FOOD_REQUEST, GET_FOOD_SUCCESS } from "../actions/Constant";
 
 const initialData = {
   food: [],
@@ -34,18 +34,18 @@ export default foodReducer;
 
 export const getFoodByIdReducer = (state = {}, action) => {
   switch (action.type) {
-    case "GET_FOOD_BY_ID_REQUEST":
+    case GET_FOOD_BY_ID_REQUEST:
       return {
         ...state,
         loading: true,
       };
-    case "GET_FOOD_BY_ID_SUCCESS":
+    case GET_FOOD_BY_ID_SUCCESS:
       return {
         ...state,
         food: action.payload,
         loading: false,
       };
-    case "GET_FOOD_BY_ID_FAIL":
+    case GET_FOOD_BY_ID_FAIL:
       return {
         ...state,
         error: action.payload,
@@ -58,20 +58,20 @@ export const getFoodByIdReducer = (state = {}, action) => {
 
 
 
-export const addFoodReducer = (state ={}, action) => {
+export const addFoodReducer = (state = {}, action) => {
   switch (action.type) {
-    case "ADD_FOOD_REQUEST":
+    case ADD_FOOD_REQUEST:
       return {
         ...state,
         loading: true,
       };
-    case "ADD_FOOD_SUCCESS":
+    case ADD_FOOD_SUCCESS:
       return {
         ...state,
         loading: false,
-        success:true,
+        success: true,
       };
-    case "ADD_FOOD_FAIL":
+    case ADD_FOOD_FAILED:
       return {
         ...state,
         error: action.payload,
@@ -82,20 +82,20 @@ export const addFoodReducer = (state ={}, action) => {
   }
 };
 
-export const editFoodReducer = (state ={}, action) => {
+export const editFoodReducer = (state = {}, action) => {
   switch (action.type) {
-    case "EDIT_FOOD_REQUEST":
+    case EDIT_FOOD_REQUEST:
       return {
         ...state,
         loading: true,
       };
-    case "EDIT_FOOD_SUCCESS":
+    case EDIT_FOOD_SUCCESS:
       return {
         ...state,
         loading: false,
-        success:true,
+        success: true,
       };
-    case "EDIT_FOOD_FAIL":
+    case EDIT_FOOD_FAILED:
       return {
         ...state,
         error: action.payload,
@@ -107,20 +107,20 @@ export const editFoodReducer = (state ={}, action) => {
 };
 
 
-export const deleteFoodReducer = (state ={}, action) => {
+export const deleteFoodReducer = (state = {}, action) => {
   switch (action.type) {
-    case "DELETE_FOOD_REQUEST":
+    case DELETE_FOOD_REQUEST:
       return {
         ...state,
         deleteLoading: true,
       };
-    case "DELETE_FOOD_SUCCESS":
+    case DELETE_FOOD_SUCCESS:
       return {
         ...state,
         deleteLoading: false,
-        deleteSuccess:true,
+        deleteSuccess: true,
       };
-    case "DELETE_FOOD_FAIL":
+    case DELETE_FOOD_FAILED:
       return {
         ...state,
         deleteError: action.payload,
