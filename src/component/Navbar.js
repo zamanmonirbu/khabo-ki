@@ -36,6 +36,7 @@ const Navbar = () => {
             data-bs-target="#offcanvasRight"
             aria-controls="offcanvasRight"
           >
+          
           </button>
 
           <div
@@ -45,7 +46,7 @@ const Navbar = () => {
             aria-labelledby="offcanvasRightLabel"
           >
             <div class="offcanvas-header">
-              <h5 id="offcanvasRightLabel">Offcanvas right</h5>
+              <h5 id="offcanvasRightLabel">Welcome to Ki-Khabo</h5>
               <button
                 type="button"
                 class="btn-close text-reset"
@@ -53,7 +54,65 @@ const Navbar = () => {
                 aria-label="Close"
               ></button>
             </div>
-            <div class="offcanvas-body">...</div>
+            <div class="offcanvas-body">
+            {currentUser ? (
+            <div className="dropdown" style={{ marginRight: "20px" }}>
+              <Link
+                className="dropdown-toggle text-dark"
+                type="button"
+                id="dropdownMenuButton"
+                data-bs-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                <button className="btn btn-info">{currentUser.name}</button>
+              </Link>
+              <div
+                className="dropdown-menu"
+                aria-labelledby="dropdownMenuButton"
+              >
+                {isAdmin ? (
+                  <Link className="dropdown-item" to="/admin">
+                    Admin Panel
+                  </Link>
+                ) : null}
+
+                <Link className="dropdown-item" to="/orders">
+                  Orders
+                </Link>
+                <Link
+                  className="dropdown-item"
+                  onClick={() => dispatch(logoutUser())}
+                >
+                  LogOut
+                </Link>
+              </div>
+            </div>
+          ) : (
+            <div className="nav-item ">
+              <Link className="nav-link" to="/login">
+                Login
+              </Link>
+            </div>
+          )}
+
+          <div style={{width:'40%',marginLeft:'25%',marginTop:'100px'}}>
+          <Link
+              className="nav-link border border-info rounded"
+              to="/cart"
+              style={{ paddingLeft: "10px", paddingRight: "10px" }}
+            >
+              {" "}
+              <img
+                src={CartIcon}
+                style={{ width: "20px" }}
+                alt="cartIcon"
+              />{" "}
+              {cartItems.length}{" "}
+            </Link>
+          </div>
+
+            </div>
           </div>
         </span>
       </button>
