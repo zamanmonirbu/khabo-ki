@@ -36,3 +36,5 @@ export const GET_ALL_USER_FAILED="GET_ALL_USER_FAILED";
 export const DELETE_USER_REQUEST="DELETE_USER_REQUEST";
 export const DELETE_USER_SUCCESS="DELETE_USER_SUCCESS";
 export const DELETE_USER_FAILED="DELETE_USER_FAILED";
+
+export const BACKEND_URL="https://khabo-ki.onrender.com"
