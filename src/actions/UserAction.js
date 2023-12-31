@@ -1,10 +1,10 @@
 import axios from "axios";
-import { DELETE_USER_FAILED, DELETE_USER_REQUEST, DELETE_USER_SUCCESS, GET_ALL_USER_FAILED, GET_ALL_USER_REQUEST, GET_ALL_USER_SUCCESS, USER_LOGIN_FAILED, USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS, USER_REGISTER_FAILED, USER_REGISTER_REQUEST, USER_REGISTER_SUCCESS } from "./Constant";
+import { BACKEND_URL, DELETE_USER_FAILED, DELETE_USER_REQUEST, DELETE_USER_SUCCESS, GET_ALL_USER_FAILED, GET_ALL_USER_REQUEST, GET_ALL_USER_SUCCESS, USER_LOGIN_FAILED, USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS, USER_REGISTER_FAILED, USER_REGISTER_REQUEST, USER_REGISTER_SUCCESS } from "./Constant";
 
 export const registerUser = (user) => async dispatch => {
     dispatch({ type: USER_REGISTER_REQUEST })
     try {
-        const response = await axios.post('/api/user/register', user)
+        const response = await axios.post(`${BACKEND_URL}/api/user/register`, user)
         dispatch({ type: USER_REGISTER_SUCCESS, payload: response })
     } catch (error) {
         dispatch({ type: USER_REGISTER_FAILED, payload: error })
@@ -13,7 +13,7 @@ export const registerUser = (user) => async dispatch => {
 export const loginUser = (user) => async dispatch => {
     dispatch({ type: USER_LOGIN_REQUEST })
     try {
-        const response = await axios.post('/api/user/login', user)
+        const response = await axios.post(`${BACKEND_URL}/api/user/login`, user)
         dispatch({ type: USER_LOGIN_SUCCESS, payload: response.data })
         localStorage.setItem("currentUser", JSON.stringify(response.data))
     } catch (error) {
@@ -23,7 +23,7 @@ export const loginUser = (user) => async dispatch => {
 export const getAllUser = () => async dispatch => {
     dispatch({ type: GET_ALL_USER_REQUEST })
     try {
-        const response = await axios.get('/api/all/user')
+        const response = await axios.get(`${BACKEND_URL}/api/all/user`)
         console.log(response);
         dispatch({ type: GET_ALL_USER_SUCCESS, payload: response.data })
     } catch (error) {
@@ -36,7 +36,7 @@ export const deleteUser = (id) => async (dispatch) => {
 
     dispatch({ type: DELETE_USER_REQUEST });
     try {
-        await axios.delete(`/api/delete/user/${id}`);
+        await axios.delete(`${BACKEND_URL}/api/delete/user/${id}`);
         dispatch({ type: DELETE_USER_SUCCESS });
         alert("Deleted Successfully")
         window.location.reload();

@@ -1,5 +1,6 @@
 import axios from "axios"
-import { GET_ALL_ORDER_FAIL, GET_ALL_ORDER_REQUEST, GET_ALL_ORDER_SUCCESS, GET_USER_ORDER_FAIL, GET_USER_ORDER_REQUEST, GET_USER_ORDER_SUCCESS, PLACE_ORDER_FAILED, PLACE_ORDER_REQUEST, PLACE_ORDER_SUCCESS } from "./Constant";
+import { BACKEND_URL, GET_ALL_ORDER_FAIL, GET_ALL_ORDER_REQUEST, GET_ALL_ORDER_SUCCESS, GET_USER_ORDER_FAIL, GET_USER_ORDER_REQUEST, GET_USER_ORDER_SUCCESS, PLACE_ORDER_FAILED, PLACE_ORDER_REQUEST, PLACE_ORDER_SUCCESS } from "./Constant";
+
 
 export const placeOrder = (token, subTotal) => async (dispatch, getState) => {
   dispatch({ type: PLACE_ORDER_REQUEST })
@@ -7,7 +8,7 @@ export const placeOrder = (token, subTotal) => async (dispatch, getState) => {
   const cartItems = getState().addToCartReducer.cartItems;
   try {
 
-    await axios.post('api/orders/placeOrder', { token, subTotal, currentUser, cartItems })
+    await axios.post(`${BACKEND_URL}/api/orders/placeOrder`, { token, subTotal, currentUser, cartItems })
     dispatch({ type: PLACE_ORDER_SUCCESS, })
   } catch (error) {
     dispatch({ type: PLACE_ORDER_FAILED })
@@ -24,7 +25,7 @@ export const getUserOrders = () => async (dispatch, getState) => {
     type: GET_USER_ORDER_REQUEST,
   });
   try {
-    const res = await axios.post("/api/orders/getUserOrders", { userid: currentUser._id });
+    const res = await axios.post(`${BACKEND_URL}/api/orders/getUserOrders`, { userid: currentUser._id });
     dispatch({
       type: GET_USER_ORDER_SUCCESS,
       payload: res.data,
@@ -43,7 +44,7 @@ export const getAllOrders = () => async (dispatch, getState) => {
     type: GET_ALL_ORDER_REQUEST,
   });
   try {
-    const res = await axios.get("/api/orders/get/all/orders")
+    const res = await axios.get(`${BACKEND_URL}/api/orders/get/all/orders`)
     dispatch({
       type: GET_ALL_ORDER_SUCCESS,
       payload: res.data,
@@ -59,9 +60,9 @@ export const getAllOrders = () => async (dispatch, getState) => {
 export const deliveredOrder = (id) => async (dispatch, getState) => {
 
   try {
-    await axios.post(`/api/order/delivery/${id}`)
+    await axios.post(`${BACKEND_URL}/api/order/delivery/${id}`)
     alert("Order Delivered")
-    const res = await axios.get("/api/orders/get/all/orders")
+    const res = await axios.get(`${BACKEND_URL}/api/orders/get/all/orders`)
     dispatch({
       type: GET_ALL_ORDER_SUCCESS,
       payload: res.data,
