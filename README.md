@@ -19,9 +19,7 @@ Khabo-Ki is a food ordering system that allows users to select food size and qua
 - Backend: Node.js
 - Database: MongoDB
 
-## Live Demo
-
-Visit the live application: [Live Server Link](https://khabo-ki.netlify.app/)
+## Visit the live application: [Live Server Link](https://khabo-ki.netlify.app/)
 
 ## Backend Code
 
@@ -47,9 +45,10 @@ Password: 12345
 
 ## Social Links
 
-- GitHub: [zamanmonirbu](https://github.com/zamanmonirbu)
-- LinkedIn: [mdmoniruzzamanbu](https://www.linkedin.com/in/mdmoniruzzamanbu)
-- Email: monir.cse6.bu@gmail.com
+Connect with me:
 
+- [LinkedIn](www.linkedin.com/in/mdmoniruzzamanbu)
+- [Netlify](https://moniruzzamanbu.netlify.app/)
+- [Medium](https://medium.com/@zamanmonirbu)
 
 Feel free to explore the code and contribute to the project!
