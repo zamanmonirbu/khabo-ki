@@ -19,17 +19,13 @@ Khabo-Ki is a food ordering system that allows users to select food size and qua
 - Backend: Node.js
 - Database: MongoDB
 
-## Setup Instructions For Local Device
-
-1. Clone the repository.
-2. Navigate to the frontend and backend directories and install dependencies using `npm install`.
-3. Configure the MongoDB connection in the backend.
-4. Start the frontend and backend servers using `npm start`.
-5. Access the application in your web browser.
-
 ## Live Demo
 
 Visit the live application: [Live Server Link](https://khabo-ki.netlify.app/)
+
+## Backend Code
+
+Github: [Code Link](https://github.com/zamanmonirbu/khabo-ki-backend)
 
 ## User Access
 
