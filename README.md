@@ -1,71 +1,59 @@
-# Getting Started with Create React App
+# Khabo-Ki Food Ordering System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Khabo-Ki is a food ordering system that allows users to select food size and quantity, make payments, and manage their orders. The project also includes an admin panel for managing food items, users, and order statuses.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+1. **User-Friendly Interface**: Intuitive design for easy navigation.
+2. **Food Selection**: Users can choose food size and quantity for their orders.
+3. **Payment System**: Secure payment processing for a seamless checkout experience.
+4. **Order Management**: Users can view their total orders and adjust quantities on the order page.
+5. **Admin Panel**: Exclusive access for authorized admins to manage food, users, and order statuses.
+6. **CRUD Operations for Admin**: Admins can Read, Write, Update, and Delete food items and user information.
+7. **MongoDB Database**: Utilizes MongoDB for efficient and reliable data storage.
+8. **Search Functionality (Future Work)**: Users will be able to search for food with specific categories and names.
 
-### `npm start`
+## Technology Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Frontend: React, Redux, Bootstrap
+- Backend: Node.js
+- Database: MongoDB
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Setup Instructions For Local Device
 
-### `npm test`
+1. Clone the repository.
+2. Navigate to the frontend and backend directories and install dependencies using `npm install`.
+3. Configure the MongoDB connection in the backend.
+4. Start the frontend and backend servers using `npm start`.
+5. Access the application in your web browser.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Live Demo
 
-### `npm run build`
+Visit the live application: [Live Server Link](https://khabo-ki.netlify.app/)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## User Access
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+To access the user interface you can create an account or can use given credentials.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Email: usermonir@gmail.com	
+Password: 1234
 
-### `npm run eject`
+## Admin Access
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+To access the admin panel, log in with admin credentials given info.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Email: adminmonir@gmail.com
+Password: 12345
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Future Works
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- **Search Functionality**: Allow users to search for food items based on specific categories and names.
 
-## Learn More
+## Social Links
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- GitHub: [zamanmonirbu](https://github.com/zamanmonirbu)
+- LinkedIn: [mdmoniruzzamanbu](https://www.linkedin.com/in/mdmoniruzzamanbu)
+- Email: monir.cse6.bu@gmail.com
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# khabo-ki
+Feel free to explore the code and contribute to the project!

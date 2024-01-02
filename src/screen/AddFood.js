@@ -22,18 +22,6 @@ const AddFood = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const food = {
-      name,
-      image,
-      description,
-      category,
-      prices: {
-        small: smallPrice,
-        medium: mediumPrice,
-        large: largePrice,
-      },
-    };
-    console.log({ food })
     dispatch(addFood())
 
   };

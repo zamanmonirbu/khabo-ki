@@ -44,8 +44,7 @@ export const getFoodById = (id) => async (dispatch) => {
 export const addFood = (food) => async (dispatch) => {
   dispatch({ type: ADD_FOOD_REQUEST });
   try {
-    const res = await axios.post("/api/food/addFood", { food });
-    console.log(res);
+     await axios.post("/api/food/addFood", { food });
     dispatch({ type: ADD_FOOD_SUCCESS });
   } catch (error) {
     dispatch({ type: ADD_FOOD_FAILED, payload: error });

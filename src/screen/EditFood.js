@@ -19,12 +19,6 @@ const EditFood = () => {
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
 
-
-  console.log(name,
-    image,
-    description,
-    category)
-
   const handleSubmit = (e) => {
     e.preventDefault();
     const EditFoodData = {
@@ -39,7 +33,6 @@ const EditFood = () => {
         large: largePrice,
       },
     };
-    console.log("From Edit", EditFoodData);
     dispatch(editFood(EditFoodData));
   };
 

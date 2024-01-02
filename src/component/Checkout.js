@@ -14,7 +14,6 @@ const Checkout = ({ subTotal }) => {
   const {currentUser}=useSelector(state=>state.loginUserReducer)
   const dispatch = useDispatch();
   const handleToken = (token) => {
-    console.log(token);
     dispatch(placeOrder(token, subTotal));
   };
   return (

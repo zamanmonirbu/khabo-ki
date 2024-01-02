@@ -24,7 +24,6 @@ export const getAllUser = () => async dispatch => {
     dispatch({ type: GET_ALL_USER_REQUEST })
     try {
         const response = await axios.get(`${BACKEND_URL}/api/all/user`)
-        console.log(response);
         dispatch({ type: GET_ALL_USER_SUCCESS, payload: response.data })
     } catch (error) {
         dispatch({ type: GET_ALL_USER_FAILED, payload: error })
