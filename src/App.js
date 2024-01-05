@@ -6,7 +6,6 @@ import { Route, Routes } from "react-router-dom";
 import Cart from "./screen/Cart";
 import RegisterScreen from "./screen/RegisterScreen";
 import LoginScreen from "./screen/LoginScreen";
-
 import "bootstrap";
 import OrderScreen from "./screen/OrderScreen";
 import AdminScreen from "./screen/AdminScreen";
@@ -24,7 +23,6 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<HomeScreen />} />
-
         <Route path="/register" element={<RegisterScreen />} />
         <Route path="/login" element={<LoginScreen />} />
         <Route path="/orders" element={<OrderScreen />} />
