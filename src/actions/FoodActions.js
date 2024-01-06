@@ -24,6 +24,7 @@ export const getAllFood = () => async (dispatch) => {
   });
   try {
     const res = await axios.get(`${BACKEND_URL}/api/food/getFoods`);
+    console.log(res);
     dispatch({
       type: GET_FOOD_SUCCESS,
       payload: res.data,
