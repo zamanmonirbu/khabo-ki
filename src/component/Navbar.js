@@ -28,94 +28,26 @@ const Navbar = () => {
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
-        <span className="navbar-toggler-icon">
-          <button
-            class="btn btn-d"
-            type="button"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#offcanvasRight"
-            aria-controls="offcanvasRight"
-          >
-          
-          </button>
-
-          <div
-            class="offcanvas offcanvas-end"
-            tabindex="-1"
-            id="offcanvasRight"
-            aria-labelledby="offcanvasRightLabel"
-          >
-            <div class="offcanvas-header">
-              <h5 id="offcanvasRightLabel">Welcome to Ki-Khabo</h5>
-              <button
-                type="button"
-                class="btn-close text-reset"
-                data-bs-dismiss="offcanvas"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div class="offcanvas-body">
-            {currentUser ? (
-            <div className="dropdown" style={{ marginRight: "20px" }}>
-              <Link
-                className="dropdown-toggle text-dark"
-                type="button"
-                id="dropdownMenuButton"
-                data-bs-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                <button className="btn btn-info">{currentUser.name}</button>
-              </Link>
-              <div
-                className="dropdown-menu"
-                aria-labelledby="dropdownMenuButton"
-              >
-                {isAdmin ? (
-                  <Link className="dropdown-item" to="/admin">
-                    Admin Panel
-                  </Link>
-                ) : null}
-
-                <Link className="dropdown-item" to="/orders">
-                  Orders
-                </Link>
-                <Link
-                  className="dropdown-item"
-                  onClick={() => dispatch(logoutUser())}
-                >
-                  LogOut
-                </Link>
-              </div>
-            </div>
-          ) : (
-            <div className="nav-item ">
-              <Link className="nav-link" to="/login">
-                Login
-              </Link>
-            </div>
-          )}
-
-          <div style={{width:'40%',marginLeft:'25%',marginTop:'100px'}}>
-          <Link
-              className="nav-link border border-info rounded"
-              to="/cart"
-              style={{ paddingLeft: "10px", paddingRight: "10px" }}
-            >
-              {" "}
-              <img
-                src={CartIcon}
-                style={{ width: "20px" }}
-                alt="cartIcon"
-              />{" "}
-              {cartItems.length}{" "}
-            </Link>
-          </div>
-
-            </div>
-          </div>
-        </span>
+        <span className="navbar-toggler-icon"></span>
       </button>
+      <button
+        className="btn btn-d"
+        type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasRight"
+        aria-controls="offcanvasRight"
+      >
+        {/* Content for the offcanvas button */}
+      </button>
+      <div
+        className="offcanvas offcanvas-end"
+        index="-1"
+        id="offcanvasRight"
+        aria-labelledby="offcanvasRightLabel"
+      >
+        {/* Offcanvas content */}
+      </div>
+
       <div
         className="collapse navbar-collapse"
         id="navbarNav"
@@ -162,6 +94,7 @@ const Navbar = () => {
               </Link>
             </div>
           )}
+
           <div className="nav-item hover:bg-secondary">
             <Link
               className="nav-link border border-info rounded"

@@ -16,6 +16,7 @@ const [food,setFood]=useState()
     const fetchData = async () => {
       try {
         const res = await axios.get(`${BACKEND_URL}/api/food/getFoods`);
+        console.log(res.data);
         setFood(res.data);
       } catch (error) {
         // Handle any errors if needed
