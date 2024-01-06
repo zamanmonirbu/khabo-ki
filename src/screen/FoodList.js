@@ -1,58 +1,28 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Loading from "../component/Loading.js";
 import Error from "../component/Error.js";
 import Success from "../component/Success.js";
-import { deleteFood } from "../actions/FoodActions.js";
+import { deleteFood, getAllFood } from "../actions/FoodActions.js";
 import { Link } from "react-router-dom";
 import AdminScreen from "./AdminScreen.js";
-import { BACKEND_URL } from "../actions/Constant.js";
-import axios from "axios";
 
 
 const FoodList = () => {
   const dispatch = useDispatch();
-  // const { food, loading, error } = useSelector((state) => state.foodReducer);
+  const { food, loading, error } = useSelector((state) => state.foodReducer);
   const { deleteLoading, deleteError, deleteSuccess } = useSelector((state) => state.deleteFoodReducer)
-  const [food,setFood]=useState([]);
 
-  // useEffect(() => {
-  //   dispatch(getAllFood());
-  // }, [dispatch]);
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       dispatch(getAllFood());
-  //     } catch (error) {
-  //       // Handle any errors if needed
-  //       console.error("Error fetching food data:", error);
-  //     }
-  //   };
-
-  //   fetchData();
-  // }, [dispatch]);
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await axios.get(`${BACKEND_URL}/api/food/getFoods`);
-        setFood(res);
-      } catch (error) {
-        // Handle any errors if needed
-        console.error("Error fetching food data:", error);
-      }
-    };
-
-    fetchData();
+    dispatch(getAllFood());
   }, [dispatch]);
-
   return (
     <div className="row m-4 justify-content-center">
     <AdminScreen/>
       <div className="col-md-10 border border-info p-4 rounded">
       <h1>Food list</h1>
-      {/* {error && <Error error={"Something went wrong"} />}
-      {loading && <Loading />} */}
+      {error && <Error error={"Something went wrong"} />}
+      {loading && <Loading />}
       {deleteError && <Error error={"Something went wrong"} />}
       {deleteLoading && <Loading />}
       {deleteSuccess && <Success success={"Successfully deleted food"} />}
