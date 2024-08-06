@@ -1,42 +1,69 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import Foods from '../component/Foods.js';
-import { getAllFood } from '../actions/FoodActions.js';
-import Loading from '../component/Loading.js';
-import Error from '../component/Error.js';
-import { BACKEND_URL } from '../actions/Constant.js';
-import axios from 'axios';
+import React, { useState, useEffect } from 'react';
+import display1 from '../Image/d1.png';
+import display2 from '../Image/d2.jpg';
+import display3 from '../Image/d3.jpg';
+import display4 from '../Image/d4.png';
+import Products from '../component/Products';
+import FoodFilter from './FoodFilter';
+import axios from 'axios'; 
+import { BACKEND_URL } from '../actions/Constant';
 
 const HomeScreen = () => {
-  const dispatch = useDispatch();
-  // const { food, loading, error } = useSelector((state) => state.foodReducer);
-const [food,setFood]=useState()
-  
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await axios.get(`${BACKEND_URL}/api/food/getFoods`);
-        console.log(res.data);
-        setFood(res.data);
-      } catch (error) {
-        // Handle any errors if needed
-        console.error("Error fetching food data:", error);
-      }
-    };
+  const [filteredFoods, setFilteredFoods] = useState([]);
+  const fetchAllProducts = async () => {
+    try {
+      const res = await axios.get(`${BACKEND_URL}/api/food/getFoods`);
+      setFilteredFoods(res.data);
+    } catch (error) {
+      console.error("Error fetching all food data:", error);
+    }
+  };
 
-    fetchData();
+  useEffect(() => {
+    fetchAllProducts();
   }, []);
 
+  const handleFilterChange = async (category, size, priceRange) => {
+    try {
+      const response = await axios.get(`${BACKEND_URL}/api/food/filter`, {
+        params: { category, size, priceRange }
+      });
+      setFilteredFoods(response.data);
+    } catch (error) {
+      console.error('Error fetching filtered foods:', error);
+    }
+  };
+
   return (
-    <div className='row justify-content-center ' style={{backgroundColor:'#F5F5F5'}}>
-      {
-        // loading ? <Loading /> : error ? <Error error={"Some thing went wrong"} /> : (
-          food?.map((food) => (
-            <div className='col-md-3 m-3' key={food._id}>
-              <Foods food={food} />
+    <div className="container-fluid">
+      <div className="row">
+        {/* Filter Part */}
+        <div className="col-md-2">
+          <FoodFilter onFilterChange={handleFilterChange} />
+        </div>
+
+        {/* Carousel Part */}
+        <div className="col-md-10">
+          <div id="carouselExampleSlidesOnly" className="carousel slide" data-bs-ride="carousel">
+            <div className="carousel-inner">
+              <div className="carousel-item active">
+                <img src={display1} className="d-block w-100" alt="display" style={{ height: '300px', objectFit: 'cover' }} />
+              </div>
+              <div className="carousel-item">
+                <img src={display2} className="d-block w-100" alt="..." style={{ height: '300px', objectFit: 'cover' }} />
+              </div>
+              <div className="carousel-item">
+                <img src={display3} className="d-block w-100" alt="..." style={{ height: '300px', objectFit: 'cover' }} />
+              </div>
+              <div className="carousel-item">
+                <img src={display4} className="d-block w-100" alt="..." style={{ height: '300px', objectFit: 'cover' }} />
+              </div>
             </div>
-          ))
-      }
+          </div>
+        </div>
+      </div>
+      {/* View all products or filtered products */}
+      <Products foods={filteredFoods} />
     </div>
   );
 };

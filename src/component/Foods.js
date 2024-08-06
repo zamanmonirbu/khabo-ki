@@ -20,7 +20,7 @@ const Foods = ({ food }) => {
     <div className='shadow-lg p-3 mb-5 bg-white rounded'>
       <div onClick={handleShow}>
         <p>{food.name}</p>
-        <img src={food.image} alt="foodImg" className='img-fluid img-thumbnail rounded ' style={{ height: '270px', width: '250px' }} />
+        <img src={food.image} alt="foodImg" className='img-fluid img-thumbnail ' style={{ height: '230px', width: '230px',borderRadius:'50%'}} />
       </div>
       <div className="fluid-container">
         <div className='w-100 mt-3 mb-3 '>

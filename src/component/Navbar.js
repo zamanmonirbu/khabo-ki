@@ -11,7 +11,7 @@ const Navbar = () => {
   const isAdmin = currentUser?.isAdmin;
 
   return (
-    <nav className="navbar navbar-expand-lg shadow-lg p-3 mb-5 bg-white rounded">
+    <nav className="navbar navbar-expand-lg shadow-lg p-3 bg-white rounded">
       <Link
         className="navbar-brand border border-info rounded"
         style={{ marginLeft: "10%", paddingLeft: "10px", paddingRight: "10px" }}

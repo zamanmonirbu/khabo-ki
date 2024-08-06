@@ -1,20 +1,22 @@
 import axios from "axios"
-import { BACKEND_URL, GET_ALL_ORDER_FAIL, GET_ALL_ORDER_REQUEST, GET_ALL_ORDER_SUCCESS, GET_USER_ORDER_FAIL, GET_USER_ORDER_REQUEST, GET_USER_ORDER_SUCCESS, PLACE_ORDER_FAILED, PLACE_ORDER_REQUEST, PLACE_ORDER_SUCCESS } from "./Constant";
+import { BACKEND_URL, GET_ALL_ORDER_FAIL, GET_ALL_ORDER_REQUEST, GET_ALL_ORDER_SUCCESS, GET_USER_ORDER_FAIL, GET_USER_ORDER_REQUEST, GET_USER_ORDER_SUCCESS, PLACE_ORDER_FAILED, PLACE_ORDER_REQUEST, PLACE_ORDER_SUCCESS,CLEAR_CART } from "./Constant";
 
 
 export const placeOrder = (token, subTotal) => async (dispatch, getState) => {
-  dispatch({ type: PLACE_ORDER_REQUEST })
+  dispatch({ type: PLACE_ORDER_REQUEST });
   const currentUser = getState().loginUserReducer.currentUser;
   const cartItems = getState().addToCartReducer.cartItems;
+
   try {
-
-    await axios.post(`${BACKEND_URL}/api/orders/placeOrder`, { token, subTotal, currentUser, cartItems })
-    dispatch({ type: PLACE_ORDER_SUCCESS, })
+    await axios.post(`${BACKEND_URL}/api/orders/placeOrder`, { token, subTotal, currentUser, cartItems });
+    dispatch({ type: PLACE_ORDER_SUCCESS });
+    dispatch({ type: CLEAR_CART }); 
   } catch (error) {
-    dispatch({ type: PLACE_ORDER_FAILED })
+    const errorMessage = error.response?.data?.message || "An error occurred.";
+    dispatch({ type: PLACE_ORDER_FAILED, payload: errorMessage });
   }
-
 };
+
 
 
 export const getUserOrders = () => async (dispatch, getState) => {

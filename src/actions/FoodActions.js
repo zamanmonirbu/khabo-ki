@@ -60,7 +60,8 @@ export const getFoodById = (id) => async (dispatch) => {
 export const addFood = (food) => async (dispatch) => {
   dispatch({ type: ADD_FOOD_REQUEST });
   try {
-    await axios.post(`${BACKEND_URL}/api/food/addFood`, { food });
+    const addFood=await axios.post(`${BACKEND_URL}/api/food/addFood`, { food });
+    console.log("addFood",addFood,"food",food)
     dispatch({ type: ADD_FOOD_SUCCESS });
   } catch (error) {
     dispatch({ type: ADD_FOOD_FAILED, payload: error });
