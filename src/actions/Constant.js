@@ -38,4 +38,4 @@ export const DELETE_USER_SUCCESS="DELETE_USER_SUCCESS";
 export const DELETE_USER_FAILED="DELETE_USER_FAILED";
 export const CLEAR_CART="CLEAR_CART";
 
-export const BACKEND_URL="http://localhost:5000"
+export const BACKEND_URL="https://khabo-ki-backend.onrender.com"
