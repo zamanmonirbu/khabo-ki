@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa'; 
 
-const FoodFilter = ({onFilterChange}) => {
+const FoodFilter = ({ onFilterChange }) => {
   const [mainCategory, setMainCategory] = useState('');
   const [size, setSize] = useState('');
   const [priceRange, setPriceRange] = useState('');
   const [expandedSection, setExpandedSection] = useState(null); 
   
-  useEffect(() => {
-    onFilterChange(mainCategory, size, priceRange);
-  }, [mainCategory, size, priceRange,onFilterChange]);
+  // useEffect(() => {
+  //   onFilterChange(mainCategory, size, priceRange);
+  // }, [mainCategory, size, priceRange]);
+  //   onFilterChange(mainCategory, size, priceRange);
 
   const handleMainCategoryChange = (category) => {
     setMainCategory(category);
@@ -46,7 +47,8 @@ const FoodFilter = ({onFilterChange}) => {
                 id="veg"
                 name="mainCategory"
                 value="veg"
-                onChange={() => handleMainCategoryChange('veg')}
+                onClick={() => handleMainCategoryChange('veg')}
+                checked={mainCategory === 'veg'}
               />
               <label htmlFor="veg" className="ms-2">Veg</label>
             </div>
@@ -56,7 +58,8 @@ const FoodFilter = ({onFilterChange}) => {
                 id="nonVeg"
                 name="mainCategory"
                 value="non-veg"
-                onChange={() => handleMainCategoryChange('non-veg')}
+                onClick={() => handleMainCategoryChange('non-veg')}
+                checked={mainCategory === 'non-veg'}
               />
               <label htmlFor="nonVeg" className="ms-2">Non-Veg</label>
             </div>
@@ -81,7 +84,8 @@ const FoodFilter = ({onFilterChange}) => {
                 id="small"
                 name="size"
                 value="small"
-                onChange={() => handleSizeChange('small')}
+                onClick={() => handleSizeChange('small')}
+                checked={size === 'small'}
               />
               <label htmlFor="small" className="ms-2">Small</label>
             </div>
@@ -91,7 +95,8 @@ const FoodFilter = ({onFilterChange}) => {
                 id="medium"
                 name="size"
                 value="medium"
-                onChange={() => handleSizeChange('medium')}
+                onClick={() => handleSizeChange('medium')}
+                checked={size === 'medium'}
               />
               <label htmlFor="medium" className="ms-2">Medium</label>
             </div>
@@ -101,7 +106,8 @@ const FoodFilter = ({onFilterChange}) => {
                 id="large"
                 name="size"
                 value="large"
-                onChange={() => handleSizeChange('large')}
+                onClick={() => handleSizeChange('large')}
+                checked={size === 'large'}
               />
               <label htmlFor="large" className="ms-2">Large</label>
             </div>
@@ -126,7 +132,8 @@ const FoodFilter = ({onFilterChange}) => {
                 id="0-100"
                 name="priceRange"
                 value="0-100"
-                onChange={() => handlePriceRangeChange('0-100')}
+                onClick={() => handlePriceRangeChange('0-100')}
+                checked={priceRange === '0-100'}
               />
               <label htmlFor="0-100" className="ms-2">0-100</label>
             </div>
@@ -136,7 +143,8 @@ const FoodFilter = ({onFilterChange}) => {
                 id="101-200"
                 name="priceRange"
                 value="101-200"
-                onChange={() => handlePriceRangeChange('101-200')}
+                onClick={() => handlePriceRangeChange('101-200')}
+                checked={priceRange === '101-200'}
               />
               <label htmlFor="101-200" className="ms-2">101-200</label>
             </div>
@@ -146,7 +154,8 @@ const FoodFilter = ({onFilterChange}) => {
                 id="201-300"
                 name="priceRange"
                 value="201-300"
-                onChange={() => handlePriceRangeChange('201-300')}
+                onClick={() => handlePriceRangeChange('201-300')}
+                checked={priceRange === '201-300'}
               />
               <label htmlFor="201-300" className="ms-2">201-300</label>
             </div>
@@ -156,7 +165,8 @@ const FoodFilter = ({onFilterChange}) => {
                 id="300+"
                 name="priceRange"
                 value="300+"
-                onChange={() => handlePriceRangeChange('300+')}
+                onClick={() => handlePriceRangeChange('300+')}
+                checked={priceRange === '300+'}
               />
               <label htmlFor="300+" className="ms-2">300+</label>
             </div>

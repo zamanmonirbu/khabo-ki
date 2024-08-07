@@ -1,38 +1,22 @@
-import React, { useState, useEffect } from 'react';
 import display1 from '../Image/d1.png';
 import display2 from '../Image/d2.jpg';
 import display3 from '../Image/d3.jpg';
 import display4 from '../Image/d4.png';
 import Products from '../component/Products';
 import FoodFilter from './FoodFilter';
-import axios from 'axios'; 
-import { BACKEND_URL } from '../actions/Constant';
+import { useDispatch, useSelector } from 'react-redux';
+import { filterFood } from '../actions/FoodActions';
 
 const HomeScreen = () => {
-  const [filteredFoods, setFilteredFoods] = useState([]);
-  const fetchAllProducts = async () => {
-    try {
-      const res = await axios.get(`${BACKEND_URL}/api/food/getFoods`);
-      setFilteredFoods(res.data);
-    } catch (error) {
-      console.error("Error fetching all food data:", error);
-    }
-  };
-
-  useEffect(() => {
-    fetchAllProducts();
-  }, []);
+  const dispatch = useDispatch();
+  const {food} = useSelector((state) => state.filterReducer);
 
   const handleFilterChange = async (category, size, priceRange) => {
-    try {
-      const response = await axios.get(`${BACKEND_URL}/api/food/filter`, {
-        params: { category, size, priceRange }
-      });
-      setFilteredFoods(response.data);
-    } catch (error) {
-      console.error('Error fetching filtered foods:', error);
-    }
+    console.log("Filter working");
+    dispatch(filterFood(category, size, priceRange));
   };
+
+  console.log(food)
 
   return (
     <div className="container-fluid">
@@ -63,7 +47,7 @@ const HomeScreen = () => {
         </div>
       </div>
       {/* View all products or filtered products */}
-      <Products foods={filteredFoods} />
+      <Products foods={food ||[]} />
     </div>
   );
 };

@@ -31,17 +31,17 @@ const AddFood = () => {
       description,
       category
     };
-
+console.log(foodData)
     dispatch(addFood(foodData));
 
     // Clear the form fields after submission
-    setName("");
-    setSmallPrice("");
-    setMediumPrice("");
-    setLargePrice("");
-    setImage("");
-    setDescription("");
-    setCategory("");
+    // setName("");
+    // setSmallPrice("");
+    // setMediumPrice("");
+    // setLargePrice("");
+    // setImage("");
+    // setDescription("");
+    // setCategory("");
   };
 
   return (

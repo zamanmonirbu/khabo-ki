@@ -15,6 +15,9 @@ import {
   GET_FOOD_FAIL,
   GET_FOOD_REQUEST,
   GET_FOOD_SUCCESS,
+  FILTER_FOOD_REQUEST,
+  FILTER_FOOD_SUCCESS,
+  FILTER_FOOD_FAIL,
 } from "./Constant";
 import axios from "axios";
 
@@ -24,7 +27,7 @@ export const getAllFood = () => async (dispatch) => {
   });
   try {
     const res = await axios.get(`${BACKEND_URL}/api/food/getFoods`);
-    console.log(res);
+    // console.log(res.data);
     dispatch({
       type: GET_FOOD_SUCCESS,
       payload: res.data,
@@ -60,13 +63,15 @@ export const getFoodById = (id) => async (dispatch) => {
 export const addFood = (food) => async (dispatch) => {
   dispatch({ type: ADD_FOOD_REQUEST });
   try {
-    const addFood=await axios.post(`${BACKEND_URL}/api/food/addFood`, { food });
-    console.log("addFood",addFood,"food",food)
+    await axios.post(`${BACKEND_URL}/api/food/addFood`, { food });
+    // const added=await axios.post(`${BACKEND_URL}/api/food/addFood`, { food });
+    // console.log("Test",added);
     dispatch({ type: ADD_FOOD_SUCCESS });
   } catch (error) {
     dispatch({ type: ADD_FOOD_FAILED, payload: error });
   }
 };
+
 export const editFood = (EditFoodData) => async (dispatch) => {
   dispatch({ type: EDIT_FOOD_REQUEST });
   try {
@@ -87,5 +92,26 @@ export const deleteFood = (id) => async (dispatch) => {
     window.location.reload();
   } catch (error) {
     dispatch({ type: DELETE_FOOD_FAILED, payload: error });
+  }
+};
+
+// New filter action
+export const filterFood = (category, size, priceRange) => async (dispatch) => {
+  dispatch({ type: FILTER_FOOD_REQUEST });
+  try {
+    const response = await axios.get(`${BACKEND_URL}/api/food/filter`, {
+      params: { category, size, priceRange },
+    });
+    // console.log(response.data)
+    dispatch({
+      type: FILTER_FOOD_SUCCESS,
+      payload: response.data,
+    });
+  } catch (error) {
+    const errorMessage = error.response?.data?.message || "An error occurred.";
+    dispatch({
+      type: FILTER_FOOD_FAIL,
+      payload: errorMessage,
+    });
   }
 };

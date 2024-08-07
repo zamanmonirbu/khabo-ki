@@ -37,5 +37,9 @@ export const DELETE_USER_REQUEST="DELETE_USER_REQUEST";
 export const DELETE_USER_SUCCESS="DELETE_USER_SUCCESS";
 export const DELETE_USER_FAILED="DELETE_USER_FAILED";
 export const CLEAR_CART="CLEAR_CART";
+export const FILTER_FOOD_REQUEST = "FILTER_FOOD_REQUEST";
+export const FILTER_FOOD_SUCCESS = "FILTER_FOOD_SUCCESS";
+export const FILTER_FOOD_FAIL = "FILTER_FOOD_FAIL";
+
 
 export const BACKEND_URL="https://khabo-ki-backend.onrender.com"

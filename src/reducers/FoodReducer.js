@@ -1,4 +1,23 @@
-import { ADD_FOOD_FAILED, ADD_FOOD_REQUEST, ADD_FOOD_SUCCESS, DELETE_FOOD_FAILED, DELETE_FOOD_REQUEST, DELETE_FOOD_SUCCESS, EDIT_FOOD_FAILED, EDIT_FOOD_REQUEST, EDIT_FOOD_SUCCESS, GET_FOOD_BY_ID_FAIL, GET_FOOD_BY_ID_REQUEST, GET_FOOD_BY_ID_SUCCESS, GET_FOOD_FAIL, GET_FOOD_REQUEST, GET_FOOD_SUCCESS } from "../actions/Constant";
+import {
+  ADD_FOOD_FAILED,
+  ADD_FOOD_REQUEST,
+  ADD_FOOD_SUCCESS,
+  DELETE_FOOD_FAILED,
+  DELETE_FOOD_REQUEST,
+  DELETE_FOOD_SUCCESS,
+  EDIT_FOOD_FAILED,
+  EDIT_FOOD_REQUEST,
+  EDIT_FOOD_SUCCESS,
+  GET_FOOD_BY_ID_FAIL,
+  GET_FOOD_BY_ID_REQUEST,
+  GET_FOOD_BY_ID_SUCCESS,
+  GET_FOOD_FAIL,
+  GET_FOOD_REQUEST,
+  GET_FOOD_SUCCESS,
+  FILTER_FOOD_REQUEST,
+  FILTER_FOOD_SUCCESS,
+  FILTER_FOOD_FAIL,
+} from "../actions/Constant";
 
 const initialData = {
   food: [],
@@ -6,20 +25,23 @@ const initialData = {
   error: null,
 };
 
-const foodReducer = (state = initialData, action) => {
+export const filterReducer = (state = initialData, action) => {
   switch (action.type) {
     case GET_FOOD_REQUEST:
+    case FILTER_FOOD_REQUEST:
       return {
         ...state,
         loading: true,
       };
     case GET_FOOD_SUCCESS:
+    case FILTER_FOOD_SUCCESS:
       return {
         ...state,
-        food: [...state.food, ...action.payload],
+        food: action.payload,
         loading: false,
       };
     case GET_FOOD_FAIL:
+    case FILTER_FOOD_FAIL:
       return {
         ...state,
         error: action.payload,
@@ -30,7 +52,6 @@ const foodReducer = (state = initialData, action) => {
   }
 };
 
-export default foodReducer;
 
 export const getFoodByIdReducer = (state = {}, action) => {
   switch (action.type) {
@@ -55,8 +76,6 @@ export const getFoodByIdReducer = (state = {}, action) => {
       return state;
   }
 };
-
-
 
 export const addFoodReducer = (state = {}, action) => {
   switch (action.type) {
@@ -106,7 +125,6 @@ export const editFoodReducer = (state = {}, action) => {
   }
 };
 
-
 export const deleteFoodReducer = (state = {}, action) => {
   switch (action.type) {
     case DELETE_FOOD_REQUEST:
@@ -130,5 +148,3 @@ export const deleteFoodReducer = (state = {}, action) => {
       return state;
   }
 };
-
-
