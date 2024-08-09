@@ -24,7 +24,7 @@ const Products = ({ foods }) => {
         <div>{error}</div>
       ) : (
         <div className='row justify-content-center'>
-          <h4 className='text-center mb-4'>Top Review Pizzas..</h4>
+          <h4 className='text-center mb-4' style={{ color: '#FA7224' }}>Top Review Pizzas..</h4>
           {displayFoods.length > 0 ? (
             displayFoods.map((item) => (
               <div className='col-md-3 col-sm-6' key={item._id}>

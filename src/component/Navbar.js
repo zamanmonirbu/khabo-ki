@@ -14,8 +14,8 @@ const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg shadow-lg p-3 bg-light">
         <Link
-        className="navbar-brand d-flex align-items-center border border-danger rounded"
-        style={{ marginLeft: '1%', padding: '2px' }}
+        className="navbar-brand d-flex align-items-center rounded" 
+        style={{ marginLeft: '1%'}}
         to="/"
       >
         <img src={NavIcon} alt="nav icon" style={{ width: '40px', height: '40px' }} className="me-2" />
@@ -66,7 +66,7 @@ const Navbar = () => {
                 aria-haspopup="true"
                 aria-expanded="false"
               >
-                <button className="btn btn-danger">{currentUser.name}</button>
+                <button className="btn" style={{ backgroundColor: '#FA7224' }}>{currentUser.name}</button>
               </Link>
               <div
                 className="dropdown-menu"
@@ -106,8 +106,9 @@ const Navbar = () => {
               {" "}
               <img
                 src={CartIcon}
-                style={{ width: "20px" }}
+                style={{ width: "20px", color:'#fa7224' }}
                 alt="cartIcon"
+                
               />{" "}
               {cartItems.length}{" "}
             </Link>

@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Footer = () => {
   return (
-    <footer className="bg-danger text-white text-center text-lg-start">
+    <footer className="text-white text-center text-lg-start" style={{ background: '#FA7224' }}>
       <div className="container p-4">
         <div className="row mt-4">
           {/* Column 1 */}

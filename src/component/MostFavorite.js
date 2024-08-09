@@ -13,7 +13,7 @@ const MostFavorite = () => {
 
   return (
     <div className='container-fluid mt-5 bg-light '>
-      <h4 className='text-center mb-4'>Most Favorite Pizza Items..</h4>
+      <h4 className='text-center mb-4' style={{ color: '#FA7224' }}>Most Favorite Pizza Items..</h4>
       {loading ? (
         <div className='text-center'>Loading...</div>
       ) : error ? (
@@ -23,7 +23,7 @@ const MostFavorite = () => {
           {mostOrderedFoods.length > 0 ? (
             mostOrderedFoods.map((item) => (
               <div className='col-md-3 col-sm-6 mb-4' key={item._id}>
-                <FavFood food={item.foodDetails} />
+                <FavFood food={item.foodDetails} ordered={item.count} />
               </div>
             ))
           ) : (

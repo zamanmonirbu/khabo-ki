@@ -50,7 +50,7 @@ const Foods = ({ food }) => {
           <p className='mt-1'>Prices: {food.prices[0][variant] * quantity} tk</p>
         </div>
         <div className="m-1 w-100">
-          <button className="btn btn-danger" onClick={handleAddToCart}>Add to cart</button>
+          <button className="btn" style={{ background: '#FA7224' }} onClick={handleAddToCart}>Add to cart</button>
         </div>
       </div>
 
@@ -66,7 +66,7 @@ const Foods = ({ food }) => {
           </div>
         </Modal.Body>
         <Modal.Footer>
-          <button className="btn btn-danger" onClick={handleClose}>Close</button>
+          <button className="btn btn-danger"   onClick={handleClose}>Close</button>
         </Modal.Footer>
       </Modal>
     </div>
