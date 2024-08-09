@@ -1,4 +1,3 @@
-import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart, deleteFromCart } from '../actions/CartAction';
 import Checkout from '../component/Checkout';
@@ -9,7 +8,7 @@ const Cart = () => {
     const cartItems = cartState.cartItems;
     let subTotal = cartItems.reduce((x, item) => x + item.price, 0)
     return (
-        <div className="row justify-content-center">
+        <div className="row justify-content-center min-vh-100">
             <div className="col-md-6 ">
                 <h2 className='mb-4'>My Cart Items {cartItems.length}</h2>
                 {

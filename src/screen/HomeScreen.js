@@ -6,20 +6,20 @@ import Products from '../component/Products';
 import FoodFilter from './FoodFilter';
 import { useDispatch, useSelector } from 'react-redux';
 import { filterFood } from '../actions/FoodActions';
+import MostFavorite from '../component/MostFavorite';
 
 const HomeScreen = () => {
   const dispatch = useDispatch();
   const {food} = useSelector((state) => state.filterReducer);
 
   const handleFilterChange = async (category, size, priceRange) => {
-    console.log("Filter working");
     dispatch(filterFood(category, size, priceRange));
   };
 
-  console.log(food)
+  // console.log(food)
 
   return (
-    <div className="container-fluid">
+    <div className="container-fluid min-vh-100">
       <div className="row">
         {/* Filter Part */}
         <div className="col-md-2">
@@ -47,6 +47,7 @@ const HomeScreen = () => {
         </div>
       </div>
       {/* View all products or filtered products */}
+      <MostFavorite/>
       <Products foods={food ||[]} />
     </div>
   );

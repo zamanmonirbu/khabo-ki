@@ -3,8 +3,7 @@ import { Modal } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../actions/CartAction';
 
-const Foods = ({ food }) => {
-  // console.log("From food",food)
+const FavFood = ({ food }) => {
   const [quantity, setQuantity] = useState(1);
   const [variant, setVariant] = useState('small');
   const [show, setShow] = useState(false);
@@ -14,17 +13,25 @@ const Foods = ({ food }) => {
 
   const dispatch = useDispatch();
   const handleAddToCart = () => {
-    dispatch(addToCart(food, quantity, variant))
-  }
+    dispatch(addToCart(food, quantity, variant));
+  };
 
   return (
-    <div className='shadow-lg p-3 mb-5 bg-white rounded'>
-      <div onClick={handleShow}>
+    <div className='shadow-lg mb-4 bg-white rounded d-flex flex-column align-items-center'>
+      <div onClick={handleShow} className='text-center cursor-pointer'>
+        <img src={food.image} alt="foodImg" className='img-fluid img-thumbnail mb-2' style={{ height: '150px', width: '150px', borderRadius: '50%' }} />
         <p>{food.name}</p>
-        <img src={food.image} alt="foodImg" className='img-fluid img-thumbnail ' style={{ height: '230px', width: '230px',borderRadius:'50%'}} />
       </div>
-      <div className="fluid-container">
-        <div className='w-100 mt-3 mb-3 '>
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>{food.name}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <img src={food.image} alt="foodImg" className='img-fluid mb-3' style={{ height: '300px', width: '100%' }} />
+          <p>{food.description}</p>
+        </Modal.Body>
+        <Modal.Footer>
+          <div className='w-100 mt-3 mb-3 '>
           Variants
           <select className='form-control' value={variant} onChange={(e) => setVariant(e.target.value)}>
             {food.variants.map((variant) => (
@@ -44,7 +51,7 @@ const Foods = ({ food }) => {
             ))}
           </select>
         </div>
-      </div>
+
       <div className="fluid-container">
         <div className="m-1 w-100">
           <p className='mt-1'>Prices: {food.prices[0][variant] * quantity} tk</p>
@@ -54,18 +61,6 @@ const Foods = ({ food }) => {
         </div>
       </div>
 
-      <Modal show={show}>
-        <Modal.Header onClick={handleClose} closeButton>
-          <Modal.Title>{food.name}</Modal.Title>
-        </Modal.Header>
-
-        <Modal.Body>
-          <div>
-            <img src={food.image} alt="foodImg" className='img-fluid' style={{ height: '400px', width: '400px' }} />
-            <p>{food.description}</p>
-          </div>
-        </Modal.Body>
-        <Modal.Footer>
           <button className="btn btn-danger" onClick={handleClose}>Close</button>
         </Modal.Footer>
       </Modal>
@@ -73,4 +68,4 @@ const Foods = ({ food }) => {
   );
 };
 
-export default Foods;
+export default FavFood;

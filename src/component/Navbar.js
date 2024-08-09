@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { logoutUser } from "../actions/UserAction";
 import CartIcon from "../Image/shopping-bag.png";
+import NavIcon from "../Image/navIcon.png"
 
 const Navbar = () => {
   const { cartItems } = useSelector((state) => state.addToCartReducer);
@@ -11,13 +12,14 @@ const Navbar = () => {
   const isAdmin = currentUser?.isAdmin;
 
   return (
-    <nav className="navbar navbar-expand-lg shadow-lg p-3 bg-white rounded">
-      <Link
-        className="navbar-brand border border-info rounded"
-        style={{ marginLeft: "10%", paddingLeft: "10px", paddingRight: "10px" }}
+    <nav className="navbar navbar-expand-lg shadow-lg p-3 bg-light">
+        <Link
+        className="navbar-brand d-flex align-items-center border border-danger rounded"
+        style={{ marginLeft: '1%', padding: '2px' }}
         to="/"
       >
-        Khabo-ki
+        <img src={NavIcon} alt="nav icon" style={{ width: '40px', height: '40px' }} className="me-2" />
+        Pizza House
       </Link>
       <button
         className="navbar-toggler"
@@ -64,7 +66,7 @@ const Navbar = () => {
                 aria-haspopup="true"
                 aria-expanded="false"
               >
-                <button className="btn btn-info">{currentUser.name}</button>
+                <button className="btn btn-danger">{currentUser.name}</button>
               </Link>
               <div
                 className="dropdown-menu"
@@ -95,9 +97,9 @@ const Navbar = () => {
             </div>
           )}
 
-          <div className="nav-item hover:bg-secondary">
+          <div className="nav-item hover:bg-success">
             <Link
-              className="nav-link border border-info rounded"
+              className="nav-link border border-danger rounded"
               to="/cart"
               style={{ paddingLeft: "10px", paddingRight: "10px" }}
             >

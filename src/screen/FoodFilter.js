@@ -7,21 +7,20 @@ const FoodFilter = ({ onFilterChange }) => {
   const [priceRange, setPriceRange] = useState('');
   const [expandedSection, setExpandedSection] = useState(null); 
   
-  // useEffect(() => {
-  //   onFilterChange(mainCategory, size, priceRange);
-  // }, [mainCategory, size, priceRange]);
-  //   onFilterChange(mainCategory, size, priceRange);
+  useEffect(() => {
+    onFilterChange(mainCategory, size, priceRange);
+  }, [mainCategory, size, priceRange]);
 
-  const handleMainCategoryChange = (category) => {
-    setMainCategory(category);
+  const handleMainCategoryChange = (event) => {
+    setMainCategory(event.target.value);
   };
 
-  const handleSizeChange = (size) => {
-    setSize(size);
+  const handleSizeChange = (event) => {
+    setSize(event.target.value);
   };
 
-  const handlePriceRangeChange = (range) => {
-    setPriceRange(range);
+  const handlePriceRangeChange = (event) => {
+    setPriceRange(event.target.value);
   };
 
   const toggleSection = (section) => {
@@ -34,7 +33,7 @@ const FoodFilter = ({ onFilterChange }) => {
       <div className="mb-3">
         <button
           onClick={() => toggleSection('category')}
-          className="btn btn-outline-primary w-100 d-flex justify-content-between align-items-center"
+          className="btn btn-outline-danger w-100 d-flex justify-content-between align-items-center"
         >
           Category
           {expandedSection === 'category' ? <FaChevronUp /> : <FaChevronDown />}
@@ -47,7 +46,7 @@ const FoodFilter = ({ onFilterChange }) => {
                 id="veg"
                 name="mainCategory"
                 value="veg"
-                onClick={() => handleMainCategoryChange('veg')}
+                onChange={handleMainCategoryChange}
                 checked={mainCategory === 'veg'}
               />
               <label htmlFor="veg" className="ms-2">Veg</label>
@@ -58,7 +57,7 @@ const FoodFilter = ({ onFilterChange }) => {
                 id="nonVeg"
                 name="mainCategory"
                 value="non-veg"
-                onClick={() => handleMainCategoryChange('non-veg')}
+                onChange={handleMainCategoryChange}
                 checked={mainCategory === 'non-veg'}
               />
               <label htmlFor="nonVeg" className="ms-2">Non-Veg</label>
@@ -71,7 +70,7 @@ const FoodFilter = ({ onFilterChange }) => {
       <div className="mb-3">
         <button
           onClick={() => toggleSection('size')}
-          className="btn btn-outline-primary w-100 d-flex justify-content-between align-items-center"
+          className="btn btn-outline-danger w-100 d-flex justify-content-between align-items-center"
         >
           Size
           {expandedSection === 'size' ? <FaChevronUp /> : <FaChevronDown />}
@@ -84,7 +83,7 @@ const FoodFilter = ({ onFilterChange }) => {
                 id="small"
                 name="size"
                 value="small"
-                onClick={() => handleSizeChange('small')}
+                onChange={handleSizeChange}
                 checked={size === 'small'}
               />
               <label htmlFor="small" className="ms-2">Small</label>
@@ -95,7 +94,7 @@ const FoodFilter = ({ onFilterChange }) => {
                 id="medium"
                 name="size"
                 value="medium"
-                onClick={() => handleSizeChange('medium')}
+                onChange={handleSizeChange}
                 checked={size === 'medium'}
               />
               <label htmlFor="medium" className="ms-2">Medium</label>
@@ -106,7 +105,7 @@ const FoodFilter = ({ onFilterChange }) => {
                 id="large"
                 name="size"
                 value="large"
-                onClick={() => handleSizeChange('large')}
+                onChange={handleSizeChange}
                 checked={size === 'large'}
               />
               <label htmlFor="large" className="ms-2">Large</label>
@@ -119,7 +118,7 @@ const FoodFilter = ({ onFilterChange }) => {
       <div className="mb-3">
         <button
           onClick={() => toggleSection('priceRange')}
-          className="btn btn-outline-primary w-100 d-flex justify-content-between align-items-center"
+          className="btn btn-outline-danger w-100 d-flex justify-content-between align-items-center"
         >
           Price Range
           {expandedSection === 'priceRange' ? <FaChevronUp /> : <FaChevronDown />}
@@ -132,7 +131,7 @@ const FoodFilter = ({ onFilterChange }) => {
                 id="0-100"
                 name="priceRange"
                 value="0-100"
-                onClick={() => handlePriceRangeChange('0-100')}
+                onChange={handlePriceRangeChange}
                 checked={priceRange === '0-100'}
               />
               <label htmlFor="0-100" className="ms-2">0-100</label>
@@ -143,7 +142,7 @@ const FoodFilter = ({ onFilterChange }) => {
                 id="101-200"
                 name="priceRange"
                 value="101-200"
-                onClick={() => handlePriceRangeChange('101-200')}
+                onChange={handlePriceRangeChange}
                 checked={priceRange === '101-200'}
               />
               <label htmlFor="101-200" className="ms-2">101-200</label>
@@ -154,7 +153,7 @@ const FoodFilter = ({ onFilterChange }) => {
                 id="201-300"
                 name="priceRange"
                 value="201-300"
-                onClick={() => handlePriceRangeChange('201-300')}
+                onChange={handlePriceRangeChange}
                 checked={priceRange === '201-300'}
               />
               <label htmlFor="201-300" className="ms-2">201-300</label>
@@ -165,7 +164,7 @@ const FoodFilter = ({ onFilterChange }) => {
                 id="300+"
                 name="priceRange"
                 value="300+"
-                onClick={() => handlePriceRangeChange('300+')}
+                onChange={handlePriceRangeChange}
                 checked={priceRange === '300+'}
               />
               <label htmlFor="300+" className="ms-2">300+</label>

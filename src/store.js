@@ -32,14 +32,18 @@
 
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import {thunk} from 'redux-thunk';
-import  {filterReducer, addFoodReducer, deleteFoodReducer, getFoodByIdReducer } from './reducers/FoodReducer';
+import  {filterReducer, addFoodReducer, deleteFoodReducer, getFoodByIdReducer, allFoodReducer } from './reducers/FoodReducer';
 import { addToCartReducer } from './reducers/CartReducer';
 import { registerUserReducer, loginUserReducer, getAllUserReducer, deleteUserReducer } from './reducers/UsersReducer';
 import { getAllOrdersReducers, getUserOrdersReducers, placeOrderReducer } from './reducers/OrderReducer';
+import { mostFavoriteReducer } from './reducers/MostFavoriteReducer';
+
+
 
 // Combine reducers
 const all = combineReducers({
     filterReducer,
+    allFoodReducer,
     addToCartReducer,
     registerUserReducer,
     loginUserReducer,
@@ -50,7 +54,8 @@ const all = combineReducers({
     deleteFoodReducer,
     getAllOrdersReducers,
     getAllUserReducer,
-    deleteUserReducer
+    deleteUserReducer,
+    mostFavoriteReducer
 });
 
 // Load initial state from localStorage

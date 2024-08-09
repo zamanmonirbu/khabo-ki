@@ -17,12 +17,14 @@ import EditFood from "./screen/EditFood";
 import AdminPrivateRoutes from "./screen/AdminPrivateRoutes";
 import UserPrivateRoute from "./screen/UserPrivateRoute";
 import IsAdmin from "./screen/IsAdmin";
+import Footer from "./component/Footer";
+
 function App() {
   return (
     <div className="App">
       <Navbar />
       <Routes>
-        <Route path="/" element={<HomeScreen />} />
+        <Route path="/" element={<HomeScreen />} />        
         <Route path="/register" element={<RegisterScreen />} />
         <Route path="/login" element={<LoginScreen />} />
         <Route path="/orders" element={<OrderScreen />} />
@@ -43,6 +45,7 @@ function App() {
         </Route>
 
       </Routes>
+      <Footer/>
     </div>
   );
 }

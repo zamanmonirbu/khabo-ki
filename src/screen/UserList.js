@@ -15,7 +15,7 @@ const UserList = () => {
   }, [dispatch]);
 
   return (
-    <div className="row m-4 justify-content-center">
+    <div className="row m-4 justify-content-center min-vh-100">
     <AdminScreen/>
       <div className="col-md-10 border border-info p-4 rounded">
         <h1>User list</h1>

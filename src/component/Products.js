@@ -1,47 +1,30 @@
-import { BACKEND_URL } from '../actions/Constant.js';
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Foods from '../component/Foods.js';
+import Loading from './Loading.js';
+import { getAllFood } from '../actions/FoodActions.js';
 
 const Products = ({ foods }) => {
-  const [allFoods, setAllFoods] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const dispatch = useDispatch();
+  const { food, loading, error } = useSelector(state => state.allFoodReducer); 
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        // console.log("Fetching data from:", `${BACKEND_URL}/api/food/getFoods`);
-        const res = await axios.get(`${BACKEND_URL}/api/food/getFoods`);
-        // console.log("Fetched data:", res.data);
-        setAllFoods(res.data);
-      } catch (error) {
-        setError("Error fetching food data");
-        console.error("Error fetching food data:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    // Only fetch data if foods prop is not provided or is empty
     if (!foods || foods.length === 0) {
-      fetchData();
-    } else {
-      setAllFoods(foods);
-      setLoading(false); // If foods are passed in, loading is done
+      dispatch(getAllFood()); 
     }
-  }, [foods]);
+  }, [foods, dispatch]);
 
-  let displayFoods = foods && foods.length > 0 ? foods : allFoods;
+  let displayFoods = foods && foods.length > 0 ? foods : food;
 
   return (
-    <div className='container-fluid mt-5'>
+    <div className='container-fluid mt-2'>
       {loading ? (
-        <div>Loading...</div>
+        <Loading />
       ) : error ? (
         <div>{error}</div>
       ) : (
         <div className='row justify-content-center'>
+          <h4 className='text-center mb-4'>Top Review Pizzas..</h4>
           {displayFoods.length > 0 ? (
             displayFoods.map((item) => (
               <div className='col-md-3 col-sm-6' key={item._id}>

@@ -10,14 +10,17 @@ import AdminScreen from "./AdminScreen.js";
 
 const FoodList = () => {
   const dispatch = useDispatch();
-  const { food, loading, error } = useSelector((state) => state.foodReducer);
+  const { food, loading, error } = useSelector((state) => state.allFoodReducer);
   const { deleteLoading, deleteError, deleteSuccess } = useSelector((state) => state.deleteFoodReducer)
 
   useEffect(() => {
     dispatch(getAllFood());
   }, [dispatch]);
+
+  // console.log("All food",food);
+
   return (
-    <div className="row m-4 justify-content-center">
+    <div className="row m-4 justify-content-center min-vh-100">
     <AdminScreen/>
       <div className="col-md-10 border border-info p-4 rounded">
       <h1>Food list</h1>

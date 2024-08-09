@@ -40,6 +40,8 @@ export const CLEAR_CART="CLEAR_CART";
 export const FILTER_FOOD_REQUEST = "FILTER_FOOD_REQUEST";
 export const FILTER_FOOD_SUCCESS = "FILTER_FOOD_SUCCESS";
 export const FILTER_FOOD_FAIL = "FILTER_FOOD_FAIL";
-
+export const MOST_FAVORITE_REQUEST = 'MOST_FAVORITE_REQUEST';
+export const MOST_FAVORITE_SUCCESS = 'MOST_FAVORITE_SUCCESS';
+export const MOST_FAVORITE_FAIL = 'MOST_FAVORITE_FAIL';
 
 export const BACKEND_URL="https://khabo-ki-backend.onrender.com"
