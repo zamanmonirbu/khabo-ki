@@ -11,6 +11,7 @@ export const placeOrder = (token, subTotal) => async (dispatch, getState) => {
     await axios.post(`${BACKEND_URL}/api/orders/placeOrder`, { token, subTotal, currentUser, cartItems });
     dispatch({ type: PLACE_ORDER_SUCCESS });
     dispatch({ type: CLEAR_CART }); 
+    localStorage.removeItem('cartItems');
   } catch (error) {
     const errorMessage = error.response?.data?.message || "An error occurred.";
     dispatch({ type: PLACE_ORDER_FAILED, payload: errorMessage });
