@@ -44,4 +44,4 @@ export const MOST_FAVORITE_REQUEST = 'MOST_FAVORITE_REQUEST';
 export const MOST_FAVORITE_SUCCESS = 'MOST_FAVORITE_SUCCESS';
 export const MOST_FAVORITE_FAIL = 'MOST_FAVORITE_FAIL';
 
-export const BACKEND_URL="https://khabo-ki-backend.onrender.com"
+export const BACKEND_URL="https://pizza-house-backend.onrender.com"
