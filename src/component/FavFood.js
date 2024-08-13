@@ -33,32 +33,36 @@ const FavFood = ({ food, ordered }) => {
           <p>{food.description}</p>
         </Modal.Body>
         <Modal.Footer>
-          <div className='w-100 mt-3 mb-3'>
-            Variants
-            <select className='form-control' value={variant} onChange={(e) => setVariant(e.target.value)}>
-              {food.variants.map((variant) => (
-                <option key={variant} value={variant}>
-                  {variant}
-                </option>
-              ))}
-            </select>
+          <div className='row w-100 mt-3 mb-3'>
+            <div className='col-6'>
+              <div>
+                Variants
+                <select className='form-control' value={variant} onChange={(e) => setVariant(e.target.value)}>
+                  {food.variants.map((variant) => (
+                    <option key={variant} value={variant}>
+                      {variant}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
+            <div className='col-6'>
+              <div>
+                Quantity
+                <select className='form-control' value={quantity} onChange={(e) => setQuantity(e.target.value)}>
+                  {[...Array(10).keys()].map((i) => (
+                    <option key={i + 1} value={i + 1}>
+                      {i + 1}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
           </div>
-          <div className='w-100 mt-3 mb-3'>
-            Quantity
-            <select className='form-control' value={quantity} onChange={(e) => setQuantity(e.target.value)}>
-              {[...Array(10).keys()].map((i) => (
-                <option key={i + 1} value={i + 1}>
-                  {i + 1}
-                </option>
-              ))}
-            </select>
-          </div>
-
           <div className="d-flex justify-content-between align-items-center mt-3 w-100">
             <p className='mb-0'>Prices: {food.prices[0][variant] * quantity} tk</p>
             <button className="btn" style={{ backgroundColor:"#FA7224" }} onClick={handleAddToCart}>Add to cart</button>
           </div>
-
           <button className="btn btn-danger mt-3" onClick={handleClose}>Close</button>
         </Modal.Footer>
       </Modal>
