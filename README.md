@@ -1,6 +1,9 @@
-# Khabo-Ki Food Ordering System
+# Pizza-House Food Ordering System
 
-Khabo-Ki is a food ordering system that allows users to select food size and quantity, make payments, and manage their orders. The project also includes an admin panel for managing food items, users, and order statuses.
+[Live Link](https://pizza-house-client.vercel.app/) | [Front-end Code](https://github.com/zamanmonirbu/pizza-house-client) | [Back-end Code](https://github.com/zamanmonirbu/pizza-house-backend) | [Demo Video](https://www.youtube.com/watch?v=V6lktb2HYu4)
+
+## Overview 
+Pizza-House is a food ordering system that allows users to select food size and quantity, make payments, and manage their orders. The project also includes an admin panel for managing food items, users, and order statuses. Most exciting features is most ordered food show first. Also have a food filtering system. 
 
 ## Features
 
@@ -10,8 +13,9 @@ Khabo-Ki is a food ordering system that allows users to select food size and qua
 4. **Order Management**: Users can view their total orders and adjust quantities on the order page.
 5. **Admin Panel**: Exclusive access for authorized admins to manage food, users, and order statuses.
 6. **CRUD Operations for Admin**: Admins can Read, Write, Update, and Delete food items and user information.
-7. **MongoDB Database**: Utilizes MongoDB for efficient and reliable data storage.
-8. **Search Functionality (Future Work)**: Users will be able to search for food with specific categories and names.
+7. **Food Filter system**: By this system a user can filter pizza of his need.
+8. **Suggestion Most Ordered food** In Index page a user will get firstly most ordered food list. From this it is easy to select food.
+9. **Search Functionality (Future Work)**: Users will be able to search for food with specific categories and names.
 
 ## Technology Stack
 
@@ -19,36 +23,34 @@ Khabo-Ki is a food ordering system that allows users to select food size and qua
 - Backend: Node.js
 - Database: MongoDB
 
-## Visit the live application: [Live Server Link](https://khabo-ki.netlify.app/)
-
-## Backend Code
-
-Github: [Code Link](https://github.com/zamanmonirbu/khabo-ki-backend)
-
 ## User Access
 
 To access the user interface you can create an account or can use given credentials.
 
-Email: usermonir@gmail.com	
-Password: 1234
+Email: user@gmail.com	
+Password: 12345
 
 ## Admin Access
 
 To access the admin panel, log in with admin credentials given info.
 
-Email: adminmonir@gmail.com
+Email: admin@gmail.com
 Password: 12345
 
 ## Future Works
 
 - **Search Functionality**: Allow users to search for food items based on specific categories and names.
 
-## Social Links
 
-Connect with me:
+## Connect with Me
 
-- [LinkedIn](www.linkedin.com/in/mdmoniruzzamanbu)
-- [Netlify](https://moniruzzamanbu.netlify.app/)
-- [Medium](https://medium.com/@zamanmonirbu)
+- **Email:** [monir.cse6.bu@gmail.com](mailto:monir.cse6.bu@gmail.com)
+- **GitHub:** [![GitHub Icon](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/zamanmonirbu)
+- **LinkedIn:** [![LinkedIn Icon](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mdmoniruzzamanbu/)
+- **Codeforces:** [![Codeforces Icon](https://img.shields.io/badge/Codeforces-00FF00?style=for-the-badge&logo=codeforces&logoColor=white)](https://codeforces.com/profile/ZaMo)
+- **LeetCode:** [![LeetCode Icon](https://img.shields.io/badge/LeetCode-FFA116?style=for-the-badge&logo=leetcode&logoColor=white)](https://leetcode.com/u/moniruzzamancse6/)
+- **Portfolio:** [![Portfolio Icon](https://img.shields.io/badge/Portfolio-000000?style=for-the-badge&logo=codeforces&logoColor=white)](https://moniruzzamanbu.netlify.app/)
+- **Medium:** [![Medium Icon](https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white)](https://medium.com/@zamanmonirbu)
 
-Feel free to explore the code and contribute to the project!
+## Contributing
+Contributions are welcome! Please feel free to submit a Pull Request.
