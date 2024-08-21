@@ -36,20 +36,6 @@ Pizza-House is a food ordering system that allows users to select food size and 
 - Backend: Node.js
 - Database: MongoDB
 
-## User Access
-
-To access the user interface you can create an account or can use given credentials.
-
-Email: user@gmail.com	
-Password: 12345
-
-## Admin Access
-
-To access the admin panel, log in with admin credentials given info.
-
-Email: admin@gmail.com
-Password: 12345
-
 ## Future Works
 
 - **Search Functionality**: Allow users to search for food items based on specific categories and names.
