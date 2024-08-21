@@ -13,9 +13,7 @@ Pizza-House is a food ordering system that allows users to select food size and 
 ### Admin Login
  - **Username:** admin@gmail.com
  - **Password:** 12345
-### Doctor Login
- - **Username:** doctor@gmail.com
- - **Password:** 12345
+
 
 
 ## Features
