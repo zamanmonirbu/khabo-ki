@@ -5,6 +5,19 @@
 ## Overview 
 Pizza-House is a food ordering system that allows users to select food size and quantity, make payments, and manage their orders. The project also includes an admin panel for managing food items, users, and order statuses. Most exciting features is most ordered food show first. Also have a food filtering system. 
 
+## Login Credentials
+
+### User Login
+ - **Username:** user@gmail.com
+ - **Password:** 12345
+### Admin Login
+ - **Username:** admin@gmail.com
+ - **Password:** 12345
+### Doctor Login
+ - **Username:** doctor@gmail.com
+ - **Password:** 12345
+
+
 ## Features
 
 1. **User-Friendly Interface**: Intuitive design for easy navigation.
